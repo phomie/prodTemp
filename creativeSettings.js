@@ -11,6 +11,7 @@ function() {
             ifrmelem.allow = "autoplay";
             ifrmelem.style["pointer-events"] = "all";
             ifrmelem.sandbox = "allow-same-origin allow-scripts allow-popups";
+            ifrmelem.style["z-index"] = "6000";
 
 
             return ifrmelem;
@@ -28,11 +29,45 @@ function() {
             }
         },
 
+        checkfordiv: function checkfordiv() {
+            var checkContainerLoadedIntvlCnt = 0;
+            var checkContainerLoaded = setInterval(function() {
+                if (document.querySelectorAll('[atf-formatsize="4x4"]') !== 'undefined') {
+
+                    killInterval(checkContainerLoaded);
+
+                    var footerelement = document.querySelector('[atf-formatsize="4x4"]');
+                    footerelement.style.textAlign = "center";
+                    return footerelement;
+
+                }
+
+                if (checkContainerLoadedIntvlCnt > 0.5) {
+                    killInterval(checkContainerLoaded);
+
+                }
+
+
+                checkContainerLoadedIntvlCnt++;
+            }, 0.5);
+
+
+            function killInterval(interv) {
+                clearInterval(interv);
+            }
+
+        },
+
+
+
         playboy: {
             homepage: {
                 fireplace: {
                     billboardwidth: 1290,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 235,
@@ -133,6 +168,9 @@ function() {
                 fireplace: {
                     billboardwidth: 1216,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 235,
@@ -169,18 +207,18 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -300,
-                            marginleftRightSky: 433,
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 1121,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
-                            condition: 7,
+                            condition: 0,
                             leadboardmarginleft: -160,
                         }],
                         false: [{
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
-                            left: 518,
+                            left: 525,
                             bottom: 408,
                             condition: 0,
                             leadboardmarginleft: 0,
@@ -210,18 +248,18 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -300,
-                            marginleftRightSky: 1193,
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
-                            condition: 7,
+                            condition: 0,
                             leadboardmarginleft: -160,
                         }],
                         false: [{
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
-                            left: 518,
+                            left: 525,
                             bottom: 408,
                             condition: 0,
                             leadboardmarginleft: 0,
@@ -248,18 +286,18 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -300,
-                            marginleftRightSky: 1193,
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
-                            condition: 7,
+                            condition: 0,
                             leadboardmarginleft: -160,
                         }],
                         false: [{
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
-                            left: 518,
+                            left: 525,
                             bottom: 408,
                             condition: 0,
                             leadboardmarginleft: 0,
@@ -286,18 +324,18 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -300,
-                            marginleftRightSky: 1193,
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
-                            condition: 7,
+                            condition: 0,
                             leadboardmarginleft: -160,
                         }],
                         false: [{
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
-                            left: 518,
+                            left: 525,
                             bottom: 408,
                             condition: 0,
                             leadboardmarginleft: 0,
@@ -306,11 +344,196 @@ function() {
                 },
             },
         },
+        daskochrezept: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1216,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 235,
+                            marginleftLeftSky: -920,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: -83,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 66,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1000,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 744,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 1121,
+                            marginlefttehstickxs: 0,
+                            left: 925,
+                            bottom: 407,
+                            condition: 0,
+                            leadboardmarginleft: -160,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 525,
+                            bottom: 408,
+                            condition: 0,
+                            leadboardmarginleft: 0,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1000,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 744,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: 925,
+                            bottom: 407,
+                            condition: 0,
+                            leadboardmarginleft: -160,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 525,
+                            bottom: 408,
+                            condition: 0,
+                            leadboardmarginleft: 0,
+                        }],
+                    }],
+                },
+
+            },
+            article: {
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1000,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 744,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: 925,
+                            bottom: 407,
+                            condition: 0,
+                            leadboardmarginleft: -160,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 525,
+                            bottom: 408,
+                            condition: 0,
+                            leadboardmarginleft: 0,
+                        }],
+                    }],
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1000,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 744,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -292,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: 925,
+                            bottom: 407,
+                            condition: 0,
+                            leadboardmarginleft: -160,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 525,
+                            bottom: 408,
+                            condition: 0,
+                            leadboardmarginleft: 0,
+                        }],
+                    }],
+                },
+            },
+        },
+
         emotion: {
             homepage: {
                 fireplace: {
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -391,6 +614,9 @@ function() {
 
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -447,6 +673,9 @@ function() {
                 fireplace: {
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -552,6 +781,9 @@ function() {
 
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -658,6 +890,9 @@ function() {
                 fireplace: {
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -763,6 +998,9 @@ function() {
 
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -869,6 +1107,226 @@ function() {
                 fireplace: {
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -162,
+                            marginleftRightSky: 943,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 66,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1006,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 8,
+                    thepositionofskys2: 8,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 8,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 8,
+                    thepositionofskys2: 8,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -920,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: -75,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                        false: [{
+                            marginleftBillboard: -24,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 211,
+                    thepositionofskys2: 211,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 176,
+                    thepositionofskys2: 176,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+
+        },
+        esquire: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -906,7 +1364,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            marginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -947,7 +1405,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            marginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -974,6 +1432,9 @@ function() {
 
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 145,
@@ -1011,7 +1472,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            marginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -1052,7 +1513,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            marginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -1068,6 +1529,2902 @@ function() {
                             leadboardmarginleft: -250,
                         }],
                     }],
+
+
+
+                },
+            },
+
+        },
+        elle: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -162,
+                            marginleftRightSky: 943,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 66,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1006,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -920,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: -75,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                        false: [{
+                            marginleftBillboard: -24,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+
+        },
+        harpersbazaar: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -162,
+                            marginleftRightSky: 943,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 66,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1006,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -920,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: -75,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                        false: [{
+                            marginleftBillboard: -24,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+
+        },
+        instyle: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -162,
+                            marginleftRightSky: 943,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 66,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1006,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 145,
+                            marginleftLeftSky: -920,
+                            marginleftRightSky: 440,
+                            marginlefttehstickxs: 0,
+                            left: -75,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                        false: [{
+                            marginleftBillboard: -24,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -457,
+                            marginleftRightSky: 959,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 613,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+
+        },
+        einfachbacken: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+        eatbetter: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+
+        slowlyveggie: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+        freundin: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+        "meine-familie-und-ich": {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+        "mein-schoenes-land": {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -906,
+                            marginleftRightSky: 298,
+                            marginlefttehstickxs: 0,
+                            left: 13,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+
+        gofeminin: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            usergenerated: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+
+                },
+            },
+
+        },
+        onmeda: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -518,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 660,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -350,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            usergenerated: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -518,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 660,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -350,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -518,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 660,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -350,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -518,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 660,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -350,
+                        }],
+                    }],
+
+
+
+                },
+
+            },
+            gallerie: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 0,
+                    thepositionofskys2: 0,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -438,
+                            marginleftRightSky: 978,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 633,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
 
 
 
