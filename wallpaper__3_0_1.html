@@ -1,0 +1,567 @@
+<html>
+
+<head> </head>
+
+<body>
+    <div id="thecreativecont"></div>
+</body>
+<script>
+    let freezedSkys = [ % STICKYSKYS % ];
+
+    var contenttyp = window.parent.atf.getContentType();
+    var basehost = window.location.hostname.split(".")[1];
+    var horst = window.location.hostname;
+    var creativeType = "wallpaper";
+    var obj = window.parent.creativeSettings;
+    var dataToRetrieve = basehost;
+    var contentyp = contenttyp;
+    var creativetypte = creativeType;
+
+
+
+    function GetPropertyValue(object, dataToRetrieve, contentyp, creativetypte) {
+        return obj[dataToRetrieve][contentyp][creativetypte]
+    }
+    wallpaperobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte)
+
+    windowwidth = window.parent.innerWidth;
+
+    mediaQueryList = window.parent.matchMedia('(max-width: 1539px  )');
+
+    if (freezedSkys) {
+        for (const prop in (wallpaperobj.whichcase[0].true[0])) {
+            singleresult = (wallpaperobj.whichcase[0].true[0])[prop];
+            theresultofloop = prop + "=" + (wallpaperobj.whichcase[0].true[0])[prop];
+            switch (prop) {
+                case "marginleftBillboard":
+                    marginleftBillboard = singleresult;
+
+                    break;
+                case "marginleftRightSky":
+
+                    if (dataToRetrieve == "bunte") {
+                        let top1 = wallpaperobj.thepositionofskys;
+                        let top2 = wallpaperobj.thepositionofskys2;
+                        marginleftRightSky = singleresult;
+                        if (windowwidth < 1540) {
+                            marginleftRightSky = 214;
+                        }
+                    } else {
+                        marginleftRightSky = singleresult;
+                        console.log('marginleftRightSky', marginleftRightSky);
+                    }
+                    break;
+                case "marginlefttehstickxs":
+                    marginlefttehstickxs = singleresult;
+                    break;
+                case "left":
+                    left = singleresult;
+                    break;
+                case "bottom":
+                    bottom = singleresult;
+                    break;
+                case "condition":
+                    condition = singleresult;
+                    break;
+                case "leadboardmarginleft":
+                    if (dataToRetrieve == "bunte") {
+
+                        if (windowwidth < 1540) {
+                            leadboardmarginleft = -379;
+
+                            function myFunction1(themovingcont) {
+                                themovingcont = frameElement.parentElement;
+                                themovingcont.style.marginLeft = -2 + "px";
+                            };
+
+                            function myFunction2(themovingcont) {
+                                themovingcont = frameElement.parentElement;
+                                themovingcont.style.marginLeft = 218 + "px";
+                            };
+
+                            function screenTest4(e) {
+                                if (e.matches) {
+
+                                    myFunction1(e.target.themovingcont);
+                                } else {
+
+                                    myFunction2(e.target.themovingcont)
+                                }
+                            }
+                            mediaQueryList.addListener(screenTest4);
+
+                        } else {
+
+                            leadboardmarginleft = singleresult;
+                            leadboardmarginleft = -160;
+
+                            function myFunction1(themovingcont) {
+                                themovingcont = frameElement.parentElement;
+                                themovingcont.style.marginLeft = -221 + "px";
+                            };
+
+                            function myFunction2(themovingcont) {
+                                themovingcont = frameElement.parentElement;
+                                themovingcont.style.marginLeft = 0 + "px";
+                            };
+
+                            function screenTest4(e) {
+                                if (e.matches) {
+
+                                    myFunction1(e.target.themovingcont);
+                                } else {
+
+                                    myFunction2(e.target.themovingcont)
+                                }
+                            }
+                            mediaQueryList.addListener(screenTest4);
+
+
+                        }
+
+                    } else {
+                        leadboardmarginleft = singleresult;
+                    }
+                    break;
+                default:
+                    console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                    break;
+            }
+        }
+
+    } else {
+
+        for (const prop in wallpaperobj.whichcase[0].false[0]) {
+            singleresult = (wallpaperobj.whichcase[0].false[0])[prop];
+            theresultofloop = prop + "=" + (wallpaperobj.whichcase[0].false[0])[prop];
+            switch (prop) {
+                case "marginleftBillboard":
+                    marginleftBillboard = singleresult;
+                    break;
+                case "marginleftRightSky":
+                    marginleftRightSky = singleresult
+                    break;
+                case "marginlefttehstickxs":
+                    marginlefttehstickxs = singleresult;
+                    break;
+                case "left":
+                    if (dataToRetrieve == "bunte") {
+                        left = singleresult;
+                        if (windowwidth < 1540) {
+                            left = 300;
+                        }
+
+                        function myFunction(left) {
+                            left = 300;
+                            mainarea.setAttribute(
+                                "style",
+                                "width:1500px;height:200px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px; bottom:" + bottom + "px");
+                            console.log('leftouter', left);
+
+                        };
+
+                        function mysecFunction(left) {
+                            left = 518;
+                            mainarea.setAttribute(
+                                "style",
+                                "width:1500px;height:200px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px; bottom:" + bottom + "px");
+                            console.log('leftouter', left);
+
+                        };
+
+                        function screenTest(e) {
+                            if (e.matches) {
+
+
+                                myFunction(e.target.left);
+                            } else {
+
+                                mysecFunction(e.target.left);
+                            }
+                        }
+                        mediaQueryList.addListener(screenTest);
+
+
+                    } else {
+                        left = singleresult;
+                    }
+                    break;
+                case "bottom":
+                    bottom = singleresult;
+                    break;
+                case "condition":
+                    condition = singleresult;
+                    break;
+                case "leadboardmarginleft":
+
+                    leadboardmarginleft = singleresult;
+
+                    break;
+                default:
+                    console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                    break;
+
+            }
+        }
+
+    }
+
+
+    var leadboard = frameElement.parentElement.firstChild;
+    leadboard.style.width = "calc(" + wallpaperobj.leadboardcalc + "px" + 160 + "px)";
+    leadboard.style.height = 600 + "px";
+    leadboard.style.marginLeft = leadboardmarginleft + "px";
+    leadboard.style.maxWidth = 'none';
+    leadboard.style.maxHeight = 'none';
+    leadboard.style.marginBottom = -510 + "px";
+    leadboard.style.marginTop = condition + "px";
+    leadboard.style.textAlign = "none !important";
+    leadboard.style.width = 1710 + "px";
+    leadboard.style.textAlign = "none !important";
+    leadboard.style.pointerEvents = "all !important";
+
+    var parentIframe = frameElement.parentElement.parentElement.firstChild;
+
+
+    var mainarea = document.createElement("div");
+    mainarea.setAttribute(
+        "style",
+        "width:1500px;height:200px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px; bottom:" + bottom + "px");
+    console.log('leftouter', left);
+
+
+
+    //jpeg
+
+    jpeg_Billboard = "[%jpeg_Billboard%]"
+    jpeg_Sky = "[%jpeg_Sky%]"
+
+
+
+
+    //Iframes
+    ifrmBillboard = "[%IFRAME_LEADERBOARD%]";
+    ifrmSkyRight = "[%IFRAME_RIGHTSKY%]";
+
+
+
+    // JS REDIRECTS
+
+    jsSkyRightRedirect = `[%JAVASCRIPT_SKYRIGHT%]`;
+    jsBillboardRedirect = `[%JAVASCRIPT_LEADERBOARD%]`;
+
+
+
+
+    obj.regex(jsSkyRightRedirect);
+    obj.regex(jsBillboardRedirect);
+
+
+    if (obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true) {
+
+
+
+        billboardtheinnerDocwrite = document.createElement("script");
+        billboardtheinnerDocwrite1 = document.createTextNode(`document.write("<scr" + "ipt src=${jsBillboardRedirect}async type='text/javascript'></scr" + "ipt>");`)
+        billboardtheinnerDocwrite.appendChild(billboardtheinnerDocwrite1);
+        skyrightheinnerDocwrite = document.createElement("script");
+        skyrightheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src= ${jsSkyRightRedirect}async type='text/javascript'></scr" + "ipt>");`
+
+    }
+
+    if (ifrmBillboard != "" && ifrmSkyRight != "") {
+        thebillboardCodes = document.createElement("script");
+        thebillboardCodes.type = "text/javascript";
+        thebillboardCodes.textContent = jsBillboardRedirect;
+
+        theSkyRightCodes = document.createElement("script");
+        theSkyRightCodes.type = "text/javascript";
+        theSkyRightCodes.textContent = jsSkyRightRedirect;
+
+
+
+    }
+    if (jsSkyRightRedirect && jsBillboardRedirect) {
+
+        Jsisintuse = true;
+    } else {
+        Jsisintuse = false;
+    }
+
+
+    if (Jsisintuse == true) {
+        billbod = obj.iframecreator(
+            wallpaperobj.billboardwidth + "px", 90 + "px",
+            "about:blank",
+            "billbod",
+
+        )
+        skyright = obj.iframecreator(
+            160 + "px",
+            600 + "px",
+            "about:blank",
+            "right",
+
+        )
+
+    }
+    if (Jsisintuse == false && (jpeg_Billboard == "" && jpeg_Sky == "")) {
+        billbod = obj.iframecreator(
+            728 + "px", 90 + "px",
+            ifrmBillboard,
+            "billbod",
+
+        );
+
+        skyright = obj.iframecreator(
+            160 + "px",
+            600 + "px",
+            ifrmSkyRight,
+            "right",
+
+        )
+
+    }
+
+
+    if (jpeg_Billboard != "" && jpeg_Sky != "") {
+
+        billbod = obj.iframecreator(
+            728 + "px", 90 + "px",
+            ifrmBillboard,
+            "billbod",
+
+        );
+
+        skyright = obj.iframecreator(
+            160 + "px",
+            600 + "px",
+            ifrmSkyRight,
+            "right",
+
+        )
+
+
+    }
+
+
+    frameContentBillboard = billbod;
+    frameContentSkyright = skyright;
+
+
+
+
+    if (freezedSkys == false) {
+
+
+        var theDiv = document.getElementById("thecreativecont");
+        theDiv.appendChild(mainarea);
+        theDiv.insertBefore(mainarea, leadboard.firstChild);
+        mainarea.append(billbod, skyright);
+
+
+        if ((obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+            hopethe1 = frameContentBillboard;
+
+
+
+            thetransformedbillbodstring = billboardtheinnerDocwrite.outerHTML;
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedbillbodstring + `</body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+            thetransformedskyrightstring = skyrightheinnerDocwrite.outerHTML;
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+
+
+        }
+        if ((obj.regex(jsSkyRightRedirect) == false && obj.regex(jsBillboardRedirect) == false) && (jpeg_Billboard == "" && jpeg_Sky == "")) {
+            hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe1.appendChild(thebillboardCodes);
+
+            hopethe3 = frameContentSkyright.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe3.appendChild(theSkyRightCodes);
+
+        }
+
+        if (jpeg_Billboard != "" && jpeg_Sky != "") {
+
+
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%jpeg_Billboard%]" + ` width="729" height="90"></body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%jpeg_Sky%]" + ` width="160" height="600"></body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+
+        }
+
+
+        var style = document.createElement("style");
+
+        style.innerHTML =
+            "* {" + "margin: 0;" +
+            "padding: 0;" +
+            "}" +
+            "#billbod{" +
+            "position:absolute;" +
+            "margin-left:" + marginleftBillboard + "px;" +
+            "}" +
+            "#right{" +
+            "position:absolute;" +
+            "margin-left:" + marginleftRightSky + "px;" +
+            "}";
+        mainarea.append(style);
+
+    } else {
+
+        var mainarea1 = document.createElement("div");
+        mainarea1.setAttribute(
+            "style",
+            "width:1500px;height:200px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px; bottom:" + bottom + "px");
+
+        let top1 = wallpaperobj.thepositionofskys;
+
+        var theDiv = document.getElementById("thecreativecont");
+        var stickySkys = document.createElement("div");
+        stickySkys.id = "tehstickxs";
+        stickySkys.style.height = 600 + "px";
+        stickySkys.style.width = 160 + "px";
+
+
+
+        theDiv.appendChild(mainarea1);
+        theDiv.insertBefore(mainarea1, leadboard.firstChild);
+        mainarea1.append(billbod);
+        parentIframe.append(stickySkys);
+        stickySkys.append(skyright);
+
+        if ((obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+            hopethe1 = frameContentBillboard;
+
+
+
+            thetransformedbillbodstring = billboardtheinnerDocwrite.outerHTML;
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedbillbodstring + `</body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+            thetransformedskyrightstring = skyrightheinnerDocwrite.outerHTML;
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+
+
+        }
+        if ((obj.regex(jsSkyRightRedirect) == false && obj.regex(jsBillboardRedirect) == false) && (jpeg_Billboard == "" && jpeg_Sky == "")) {
+            hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe1.appendChild(thebillboardCodes);
+
+            hopethe3 = frameContentSkyright.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe3.appendChild(theSkyRightCodes);
+
+        }
+
+        if (jpeg_Billboard != "" && jpeg_Sky != "") {
+
+
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%hyperlink%]' target="_blank"><img src="` + "[%jpeg_Billboard%]" + ` width="729" height="90"></a></body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%hyperlink%]' target="_blank"><img src="` + "[%jpeg_Sky%]" + ` width="160" height="600"></a></body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+
+        }
+
+
+
+
+
+
+        var style1 = document.createElement("style");
+        stickySkys.style.position = "absolute";
+        style1.innerHTML =
+            "* {" +
+            "margin: 0;" +
+            "padding: 0;" +
+            "}" +
+            "#tehstickxs{" +
+            "top:0px;" +
+            "}" +
+            "#right{" +
+            "position:absolute;" +
+            "margin-left:" + marginleftRightSky + "px;" +
+            "top:" + top1 + "px;" +
+            "}";
+        stickySkys.append(style1);
+
+        style3 = document.createElement("style");
+        style3.innerHTML =
+            "#billbod {" +
+            "position:absolute;" +
+            "margin-left:" + marginleftBillboard + "px;" +
+            "}"
+        billbod.append(style3);
+        thewind = window.parent.document.getElementsByTagName('body')[0];
+        thewind.onscroll = () => {
+            let top2 = wallpaperobj.thepositionofskys2;
+
+            var rect = leadboard.getBoundingClientRect();
+            y = rect.top
+
+            if (y > 62) {
+                stickySkys.style.position = "absolut";
+                style1.innerHTML =
+                    "* {" +
+                    "margin: 0;" +
+                    "padding: 0;" +
+                    "}" +
+                    "#tehstickxs{" +
+                    "top:0px;" +
+                    "}" +
+                    "#billbod{" +
+                    "position:absolute;" +
+                    "margin-left:" + marginleftBillboard + "px;" +
+                    "}" +
+                    "#right{" +
+                    "position:absolute;" +
+                    "margin-left:" + marginleftRightSky + "px;" +
+                    "top:" + top2 + "px;" +
+                    "}";
+                stickySkys.append(style1);
+
+            } else {
+                style1.innerHTML =
+                    "* {" +
+                    "margin: 0;" +
+                    "padding: 0;" +
+                    "}" +
+                    "#tehstickxs{" +
+                    "top:0px;" +
+                    "}" +
+                    "#billbod{" +
+                    "position:absolute;" +
+                    "margin-left:" + marginleftBillboard + "px;" +
+                    "}" +
+                    "#right{" +
+                    "position: fixed;" +
+                    "margin-left:" + marginleftRightSky + "px;" +
+                    "top:60px" +
+                    "}";
+
+            }
+        }
+        stickySkys.append(style1)
+
+
+    }
+</script>
+
+</html>

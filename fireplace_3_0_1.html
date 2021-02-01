@@ -1,0 +1,459 @@
+<html>
+
+<head> </head>
+
+<body>
+    <div id="thecreativecont"></div>
+</body>
+<script>
+    let freezedSkys = [ % STICKYSKYS % ];
+
+    var contenttyp = window.parent.atf.getContentType();
+    var basehost = window.location.hostname.split(".")[1];
+    var horst = window.location.hostname;
+    var creativeType = "fireplace";
+    var obj = window.parent.creativeSettings;
+    var dataToRetrieve = basehost;
+    var contentyp = contenttyp;
+    var creativetypte = creativeType;
+
+
+    function GetPropertyValue(object, dataToRetrieve, contentyp, creativetypte) {
+        return obj[dataToRetrieve][contentyp][creativetypte]
+    }
+    fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte)
+    billboardwidth = fireplaceobj.billboardwidth;
+    billboardwidth1 = billboardwidth - 8;
+    leadboardmarginleft = fireplaceobj.leadboardmarginleft;
+
+    leadboardcalc = fireplaceobj.leadboardcalc
+    console.log('leadboardcalc', leadboardcalc);
+
+    if (freezedSkys) {
+        for (const prop in (fireplaceobj.whichcase[0].true[0])) {
+            singleresult = (fireplaceobj.whichcase[0].true[0])[prop];
+            theresultofloop = prop + "=" + (fireplaceobj.whichcase[0].true[0])[prop];
+            switch (prop) {
+                case "marginleftBillboard":
+                    marginleftBillboard = singleresult;
+                    break;
+                case "marginleftLeftSky":
+                    marginleftLeftSky = singleresult;
+                    break;
+                case "marginleftRightSky":
+                    marginleftRightSky = singleresult;
+                    break;
+                case "marginlefttehstickxs":
+                    marginlefttehstickxs = singleresult;
+                    break;
+                case "left":
+                    left = singleresult;
+                    break;
+                case "bottom":
+                    bottom = singleresult;
+                    break;
+                case "condition":
+                    condition = singleresult;
+                    break;
+                default:
+                    console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                    break;
+            }
+        }
+
+    } else {
+
+        for (const prop in fireplaceobj.whichcase[0].false[0]) {
+
+            singleresult = (fireplaceobj.whichcase[0].false[0])[prop];
+
+            theresultofloop = prop + "=" + (fireplaceobj.whichcase[0].false[0])[prop];
+            switch (prop) {
+                case "marginleftBillboard":
+                    marginleftBillboard = singleresult;
+                    break;
+                case "marginleftLeftSky":
+                    marginleftLeftSky = singleresult;
+                    break;
+                case "marginleftRightSky":
+                    marginleftRightSky = singleresult;
+                    break;
+                case "marginlefttehstickxs":
+                    marginlefttehstickxs = singleresult;
+                    break;
+                case "left":
+                    left = singleresult;
+                    break;
+                case "bottom":
+                    bottom = singleresult;
+                    break;
+                case "condition":
+                    condition = singleresult;
+                    break;
+                default:
+                    console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                    break;
+
+            }
+        }
+
+    }
+    //frameElement.parentElement.firstChild
+    var leadboard = frameElement.parentElement.firstChild;
+    leadboard.style.width = "calc(" + leadboardcalc + "px" + 160 + "px" + 160 + "px)";
+    leadboard.style.height = 600 + "px";
+    leadboard.style.marginLeft = leadboardmarginleft + "px";
+    leadboard.style.maxWidth = 'none';
+    leadboard.style.maxHeight = 'none';
+    leadboard.style.marginBottom = -350 + "px";
+    leadboard.style.textAlign = "none !important";
+    leadboard.style.width = 1710 + "px";
+    leadboard.style.textAlign = "none !important";
+
+
+    //var leadboard3 = frameElement.parentElement.parentElement;
+    var parentIframe = frameElement.parentElement.parentElement.firstChild;
+
+    var mainarea = document.createElement("div");
+    mainarea.setAttribute(
+        "style",
+        "width:1520px;height:600px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px;bottom:" + bottom + "px;"
+    );
+
+
+
+    //Iframes
+    ifrmBillboard = "[%Iframeurl_Billboard%]";
+    ifrmSkyLeft = "[%Iframeurl_SkyLeft%]";
+    ifrmSkyRight = "[%Iframeurl_SkyRight%]";
+
+
+
+    // JS REDIRECTS
+    jsSkyLeftRedirect = `[%SkyLeft_JS_Redirect%]`;
+    jsSkyRightRedirect = `[%SkyRight_JS_Redirect%]`;
+    jsBillboardRedirect = `[%Billboard_JS_Redirect%]`;
+
+
+    obj.regex(jsSkyLeftRedirect);
+    console.log('obj.regex', obj.regex);
+    obj.regex(jsSkyRightRedirect);
+    obj.regex(jsBillboardRedirect);
+
+    if ((obj.regex(jsSkyLeftRedirect) == true && obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+
+
+
+        billboardtheinnerDocwrite = document.createElement("script");
+        billboardtheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsBillboardRedirect + `'   type='text/javascript'></scr" + "ipt>");`
+
+        skyrightheinnerDocwrite = document.createElement("script");
+        skyrightheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsSkyRightRedirect + `'   type='text/javascript'></scr" + "ipt>");`
+
+
+        skylefttheinnerDocwrite = document.createElement("script");
+        skylefttheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsSkyLeftRedirect + `'   type='text/javascript'></scr" + "ipt>");`
+
+
+    } else {
+        thebillboardCodes = document.createElement("script");
+        console.log('thebillboardCodes', thebillboardCodes);
+        thebillboardCodes.type = "text/javascript";
+        thebillboardCodes.textContent = jsBillboardRedirect;
+
+        theSkyRightCodes = document.createElement("script");
+        theSkyRightCodes.type = "text/javascript";
+        theSkyRightCodes.textContent = jsSkyRightRedirect;
+
+        theSkyLeftCodes = document.createElement("script");
+        theSkyLeftCodes.type = "text/javascript";
+        theSkyLeftCodes.textContent = jsSkyRightRedirect;
+
+    }
+
+
+    if (jsSkyLeftRedirect && jsSkyRightRedirect && jsBillboardRedirect) {
+
+        Jsisintuse = true;
+    } else {
+        Jsisintuse = false;
+    }
+
+
+    if (Jsisintuse == true) {
+        billbod = obj.iframecreator(
+
+            billboardwidth1, 250,
+            "about:blank",
+            "billbod"
+        )
+        skyleft = obj.iframecreator(
+            160,
+            600,
+            "about:blank",
+            "left"
+        );
+        skyright = obj.iframecreator(
+            160,
+            600,
+            "about:blank",
+            "right"
+        )
+
+    } else {
+        billbod = obj.iframecreator(
+            billboardwidth, 250,
+            ifrmBillboard,
+            "billbod"
+        );
+
+        skyleft = obj.iframecreator(
+            160,
+            600,
+            ifrmSkyLeft,
+            "leftSky"
+        );
+        skyright = obj.iframecreator(
+            160,
+            600,
+            ifrmSkyRight,
+            "rightSky"
+        )
+
+    }
+
+    frameContentBillboard = billbod;
+
+    frameContentSkyleft = skyleft;
+
+    frameContentSkyright = skyright;
+
+
+    if (freezedSkys == false) {
+
+
+        var theDiv = document.getElementById("thecreativecont");
+        theDiv.appendChild(mainarea);
+        theDiv.insertBefore(mainarea, leadboard.firstChild);
+        mainarea.append(billbod, skyleft, skyright);
+
+
+        if ((obj.regex(jsSkyLeftRedirect) == true && obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+
+
+
+            thetransformedbillbodstring = billboardtheinnerDocwrite.outerHTML;
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedbillbodstring + `</body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+            thetransformedskyleftstring = skylefttheinnerDocwrite.outerHTML;
+            frameContentSkyleft.contentWindow.document.open();
+            frameContentSkyleft.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyleftstring + `</body></html></head>`);
+            frameContentSkyleft.contentWindow.document.close();
+
+            thetransformedskyrightstring = skyrightheinnerDocwrite.outerHTML;
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+
+
+
+        } else {
+            hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe1.appendChild(thebillboardCodes);
+
+            hopethe2 = frameContentSkyleft.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe2.appendChild(theSkyLeftCodes);
+
+            hopethe3 = frameContentSkyright.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe3.appendChild(theSkyRightCodes);
+
+        }
+
+        var style = document.createElement("style");
+        style.innerHTML =
+            "* {" + "margin: 0;" +
+            "padding: 0;" +
+            "margin:0;" +
+            "}" +
+            "#billbod {" +
+            "margin:0;" +
+            "position: absolute;" +
+            "margin-left:" + marginleftBillboard + "px;" +
+            "}" +
+            "#leftSky {" +
+            "position: absolute;" +
+            "margin-left: " + marginleftLeftSky + "px;" +
+            "}" +
+            "#rightSky {" +
+            "position: absolute;" +
+            "margin-left:" + marginleftRightSky + "px;" +
+            "}";
+        mainarea.append(style);
+
+    } else {
+
+
+        horstname1 = window.parent.document.location.hostname;
+
+
+
+        if (horstname1 == "testing.bunte.de") {
+            top1 = 0;
+
+        } else {
+
+            top1 = frameElement.parentElement.firstChild.getBoundingClientRect().top + frameElement.parentElement.firstChild.ownerDocument.defaultView.pageYOffset;
+            console.log('top1', top1);
+
+        }
+
+
+
+        var theDiv = document.getElementById("thecreativecont");
+        var stickySkys = document.createElement("div");
+        stickySkys.id = "tehstickxs";
+        stickySkys.style.height = 600 + "px";
+        stickySkys.style.width = 1520 + "px"
+
+
+
+        theDiv.appendChild(mainarea);
+        theDiv.insertBefore(mainarea, leadboard.firstChild);
+        mainarea.append(billbod);
+        parentIframe.append(stickySkys);
+        stickySkys.append(skyleft, skyright);
+        if ((obj.regex(jsSkyLeftRedirect) == true && obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+            thetransformedbillbodstring = billboardtheinnerDocwrite.outerHTML;
+            frameContentBillboard.contentWindow.document.open();
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedbillbodstring + `</body></html></head>`);
+            frameContentBillboard.contentWindow.document.close();
+
+            thetransformedskyleftstring = skylefttheinnerDocwrite.outerHTML;
+            frameContentSkyleft.contentWindow.document.open();
+            frameContentSkyleft.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyleftstring + `</body></html></head>`);
+            frameContentSkyleft.contentWindow.document.close();
+
+            thetransformedskyrightstring = skyrightheinnerDocwrite.outerHTML;
+            frameContentSkyright.contentWindow.document.open();
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
+            frameContentSkyright.contentWindow.document.close();
+        } else {
+            hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe1.appendChild(thebillboardCodes);
+
+            hopethe2 = frameContentSkyleft.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe2.appendChild(theSkyLeftCodes);
+
+            hopethe3 = frameContentSkyright.contentWindow.document.getElementsByTagName("body")[0];
+            hopethe3.appendChild(theSkyRightCodes);
+
+        }
+
+
+        let top2 = fireplaceobj.thepositionofskys2;
+        var style1 = document.createElement("style");
+        stickySkys.style.position = "absolute";
+        style1.innerHTML =
+            "* {" +
+            "margin: 0;" +
+            "padding: 0;" +
+            "}" +
+            "#tehstickxs{" +
+            "top:0px;" +
+            "margin:0;" +
+            "pointer-events:none;" +
+            "}" +
+            "#leftSky {" +
+            "position: absolute;" +
+            "margin-left:" + marginleftLeftSky + "px;" +
+            "top:" + top2 + "px;" +
+            "}" +
+            "#rightSky {" +
+            "position: absolute;" +
+            "margin-left:" + marginleftRightSky + "px;" +
+            "top:" + top2 + "px;" +
+            "}";
+        stickySkys.append(style1);
+        style3 = document.createElement("style");
+        style3.innerHTML =
+            "#billbod {" +
+            "position: absolute;" +
+            "margin-left:" + marginleftBillboard + "px;" +
+            "}"
+        billbod.append(style3);
+
+
+
+
+
+        thewind = window.parent.document.getElementsByTagName('body')[0];
+
+        thewind.onscroll = () => {
+            var rect = leadboard.getBoundingClientRect();
+
+            y = rect.top
+            if (y > 62) {
+                stickySkys.style.position = "absolut";
+                style1.innerHTML =
+                    "* {" +
+                    "margin: 0;" +
+                    "padding: 0;" +
+                    "}" +
+                    "#tehstickxs{" +
+                    "top:0px;" +
+                    "pointer-events:none;" +
+                    "}" +
+                    "#billbod {" +
+                    "margin:0;" +
+                    "position: absolute;" +
+                    "margin-left: 160px;" +
+                    "}" +
+                    "#leftSky {" +
+                    "position: absolute;" +
+                    "margin-left:" + marginleftLeftSky + "px;" +
+                    "top:" + top2 + "px;" +
+                    "}" +
+                    "#rightSky {" +
+                    "position: absolute;" +
+                    "margin-left:" + marginleftRightSky + "px;" +
+                    "top:" + top2 + "px;" +
+                    "}";
+                stickySkys.append(style1);
+
+            } else {
+                style1.innerHTML =
+                    "* {" +
+                    "margin: 0;" +
+                    "padding: 0;" +
+                    "}" +
+                    "#tehstickxs{" +
+                    "top:0px;" +
+                    "pointer-events:none;" +
+                    "}" +
+                    "#billbod {" +
+                    "margin:0;" +
+                    "position: absolute;" +
+                    "margin-left: 160px;" +
+                    "}" +
+                    "#leftSky {" +
+                    "position: fixed;" +
+                    "margin-left:" + marginleftLeftSky + "px;" +
+                    "top:60px" +
+                    "}" +
+                    "#rightSky {" +
+                    "position: fixed;" +
+                    "margin-left:" + marginleftRightSky + "px;" +
+                    "top:60px" +
+                    "}";
+
+            }
+        }
+        stickySkys.append(style1)
+
+
+    }
+</script>
+
+</html>

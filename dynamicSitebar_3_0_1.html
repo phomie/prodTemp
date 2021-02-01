@@ -1,0 +1,203 @@
+<html>
+
+<head>
+    <script>
+        var contenttyp = window.parent.atf.getContentType();
+        var basehost = window.location.hostname.split(".")[1];
+        var horst = window.location.hostname;
+        var creativeType = "dynamicSitebar";
+        var obj = window.parent.creativeSettings;
+        var dataToRetrieve = basehost;
+        var contentyp = contenttyp;
+        var creativetypte = creativeType;
+
+        function GetPropertyValue(
+            object,
+            dataToRetrieve,
+            contentyp,
+            creativetypte
+        ) {
+            return obj[dataToRetrieve][contentyp][creativetypte];
+        }
+        sitebarobj = GetPropertyValue(
+            obj,
+            dataToRetrieve,
+            contentyp,
+            creativetypte
+        );
+
+        thefirstframe = frameElement.parentElement.parentElement.firstChild.firstChild;
+
+        if (basehost == "gofeminin") {
+            findit = frameElement.parentElement.parentElement.parentElement.parentElement
+            finditheight = findit.clientHeight
+            console.log('finditheight', finditheight);
+
+            themaxheight = finditheight;
+
+
+        } else {
+            themaxheight = thefirstframe.clientHeight;
+        }
+
+
+
+
+        for (const prop in sitebarobj) {
+            singleresult = sitebarobj[prop];
+            switch (prop) {
+                case "maxheight":
+                    maxheight = singleresult;
+                    break;
+                case "maxheight1":
+                    maxheight1 = singleresult;
+                    break;
+                case "maxheight2":
+                    maxheight2 = singleresult;
+                    break;
+                case "maxheight3":
+                    maxheight3 = singleresult;
+                    break;
+                case "maxheight4":
+                    maxheight4 = singleresult;
+                    break;
+                default:
+                    console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                    break;
+            }
+        }
+
+        var resizing = function dsaBox() {
+            atfadslot = frameElement.parentNode.parentElement.parentElement;
+
+            googledovheight = atfadslot.clientHeight;
+            googledovwidth = atfadslot.clientWidth;
+            boxright = frameElement.parentElement.firstChild;
+            boxright.style.position = "absolut";
+            boxright.style.height = googledovheight + "px";
+            theexactheight = window.parent.innerHeight;
+            if (theexactheight >= 1350) {
+                boxright.style.maxHeight = maxheight + "px";
+            } else if (theexactheight >= 1200 && theexactheight <= 1350) {
+                boxright.style.maxHeight = maxheight1 + "px";
+            } else if (theexactheight >= 900 && theexactheight <= 1200) {
+                boxright.style.maxHeight = maxheight2 + "px";
+            } else if (theexactheight >= 700 && theexactheight <= 900) {
+                boxright.style.maxHeight = maxheight3 + "px";
+            } else {}
+
+            boxright.style.minHeight = 600 + "px";
+            boxright.style.maxWidth = 800 + "px";
+            boxright.style.minWidth = 300 + "px";
+            var posinBrowser = boxright.getBoundingClientRect();
+            var left = posinBrowser.left;
+            var topto = top.parent.innerWidth;
+            var newbreite = topto - left + - +8;
+            boxwidth = boxright.style.width = newbreite + "px";
+            toptobor = posinBrowser.top;
+            var eh = window.parent.innerHeight;
+            var therealhight = eh - toptobor;
+            boxheight = boxright.style.height = therealhight + "px";
+
+            return {
+                boxheight,
+                boxwidth,
+            };
+        };
+        delay = 20; // delay between calls
+        throttled = false; // are we currently throttled?
+        window.parent.addEventListener("scroll", function() {
+            thetoplev = thefirstframe.getBoundingClientRect();
+            theDistancToTop = thetoplev.y;
+            if (theDistancToTop <= 80) {}
+            if (!throttled) {
+                let {
+                    boxheight,
+                    boxwidth
+                } = new resizing();
+                throttled = true;
+                setTimeout(function() {
+                    throttled = false;
+                }, delay);
+            }
+            return;
+        });
+
+        window.parent.addEventListener("resize", function() {
+            if (!throttled) {
+                let {
+                    boxheight,
+                    boxwidth
+                } = new resizing();
+                throttled = true;
+                setTimeout(function() {
+                    throttled = false;
+                }, delay);
+            }
+            return;
+        });
+        resizing();
+    </script>
+</head>
+
+<body>
+    <div id="thecreativecont"></div>
+</body>
+
+<script>
+    iframeurl = "[%IFRAME_REDIRECT%]";
+    jsredirect = `[%JAVASCRIPT_REDIRECT%]`;
+
+    obj.regex(jsredirect)
+
+    if (obj.regex(jsredirect) == true) {
+        thecrativecodes = document.createElement("script");
+        thecrativecodes.innerHTML = `document.write("<scr" + "ipt src='` + jsredirect + `'></scr" + "ipt>");`;
+
+    } else {
+        thecrativecodes = document.createElement("script");
+        thecrativecodes.type = "text/javascript";
+        thecrativecodes.textContent = jsredirect;
+
+    }
+
+    if (iframeurl == "") {
+        console.log("iframeurl_not_filled");
+        document.getElementsByTagName("html")[0].style.height = 100 + "%";
+        document.getElementsByTagName("body")[0].style.height = 100 + "%";
+
+        function theDSA() {
+            theDiv = document.getElementById("thecreativecont");
+            theDiv.style.maxHeight = 100 + "%";
+            theDiv.style.height = 100 + "%";
+            theDiv.style.width = 100 + "%";
+
+            dsa = obj.iframecreator(100 + "%", 100 + "%", "about:blank", "theframe");
+            theDiv.appendChild(dsa);
+
+            var frameObj = document.getElementById("theframe");
+            var frameContent = frameObj.contentWindow.document.body.innerHTML;
+
+            hopethe = frameObj.contentWindow.document.getElementsByTagName(
+                "body"
+            )[0];
+            hopethe.appendChild(thecrativecodes);
+        }
+        theDSA();
+    } else {
+        document.getElementsByTagName("html")[0].style.height = 100 + "%";
+        document.getElementsByTagName("body")[0].style.height = 100 + "%";
+
+        function theDSA() {
+            var theDiv = document.getElementById("thecreativecont");
+            theDiv.style.maxHeight = 100 + "%";
+            theDiv.style.height = 100 + "%";
+            theDiv.style.width = 100 + "%";
+            let dsa = obj.iframecreator(100 + "%", 100 + "%", iframeurl, "theframe");
+            theDiv.appendChild(dsa);
+        }
+        theDSA();
+    }
+</script>
+
+</html>
