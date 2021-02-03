@@ -382,19 +382,19 @@ function() {
                     maxheight4: 600,
                 },
                 wallpaper: {
-                    billboardwidth: 744,
+                    billboardwidth: 728,
                     leadboardcalc: 1710,
                     thepositionofskys: 0,
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 1121,
+                            marginleftBillboard: -48,
+                            marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
                             condition: 0,
-                            leadboardmarginleft: -160,
+                            leadboardmarginleft: -240,
                         }],
                         false: [{
                             marginleftBillboard: -53,
@@ -425,17 +425,17 @@ function() {
                 wallpaper: {
                     billboardwidth: 744,
                     leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
+                    thepositionofskys: 20,
+                    thepositionofskys2: 20,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
+                            marginleftBillboard: -48,
+                            marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
                             condition: 0,
-                            leadboardmarginleft: -160,
+                            leadboardmarginleft: -240,
                         }],
                         false: [{
                             marginleftBillboard: -53,
@@ -463,17 +463,17 @@ function() {
                 wallpaper: {
                     billboardwidth: 744,
                     leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
+                    thepositionofskys: 20,
+                    thepositionofskys2: 20,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
+                            marginleftBillboard: -48,
+                            marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
                             condition: 0,
-                            leadboardmarginleft: -160,
+                            leadboardmarginleft: -240,
                         }],
                         false: [{
                             marginleftBillboard: -53,
@@ -505,13 +505,13 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
+                            marginleftBillboard: -48,
+                            marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
                             condition: 0,
-                            leadboardmarginleft: -160,
+                            leadboardmarginleft: -240,
                         }],
                         false: [{
                             marginleftBillboard: -53,
@@ -566,8 +566,8 @@ function() {
                 wallpaper: {
                     billboardwidth: 744,
                     leadboardcalc: 1710,
-                    thepositionofskys: 243,
-                    thepositionofskys2: 243,
+                    thepositionofskys: 250,
+                    thepositionofskys2: 250,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -300,
@@ -647,6 +647,29 @@ function() {
 
                 },
                 wallpaper: {
+                    billboardwidth: 744,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 480,
+                    thepositionofskys2: 480,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -300,
+                            marginleftRightSky: 941,
+                            marginlefttehstickxs: 0,
+                            left: 925,
+                            bottom: 407,
+                            condition: 7,
+                            leadboardmarginleft: -412,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 518,
+                            bottom: 408,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
 
                 },
 
@@ -668,7 +691,7 @@ function() {
             },
 
         },
-        guterrat: {
+        "guter-rat": {
             homepage: {
                 fireplace: {
                     billboardwidth: 1200,
@@ -713,7 +736,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            marginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -754,7 +777,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            mmarginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -821,7 +844,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -457,
-                            marginleftRightSky: 279,
+                            mmarginleftRightSky: 959,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -925,12 +948,12 @@ function() {
                 wallpaper: {
                     billboardwidth: 744,
                     leadboardcalc: 1710,
-                    thepositionofskys: 243,
-                    thepositionofskys2: 243,
+                    thepositionofskys: 7,
+                    thepositionofskys2: 7,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -300,
-                            marginleftRightSky: 941,
+                            marginleftBillboard: -211,
+                            marginleftRightSky: 950,
                             marginlefttehstickxs: 0,
                             left: 925,
                             bottom: 407,
@@ -1003,13 +1026,13 @@ function() {
                     leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: 145,
-                            marginleftLeftSky: -920,
-                            marginleftRightSky: 440,
+                            marginleftBillboard: -466,
+                            marginleftRightSky: 950,
                             marginlefttehstickxs: 0,
-                            left: -75,
-                            bottom: 0,
+                            left: 925,
+                            bottom: 407,
                             condition: 7,
+                            leadboardmarginleft: -412,
                         }],
                         false: [{
                             marginleftBillboard: -24,
