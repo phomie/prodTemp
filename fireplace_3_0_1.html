@@ -211,13 +211,13 @@
             160,
             600,
             ifrmSkyLeft,
-            "leftSky"
+            "left"
         );
         skyright = obj.iframecreator(
             160,
             600,
             ifrmSkyRight,
-            "rightSky"
+            "right"
         )
 
     }
@@ -282,19 +282,23 @@
             "position: absolute;" +
             "margin-left:" + marginleftBillboard + "px;" +
             "}" +
-            "#leftSky {" +
+            "#left {" +
             "position: absolute;" +
             "margin-left: " + marginleftLeftSky + "px;" +
             "}" +
-            "#rightSky {" +
+            "#right {" +
             "position: absolute;" +
             "margin-left:" + marginleftRightSky + "px;" +
             "}";
         mainarea.append(style);
 
     } else {
-        top1 = fireplaceobj.thepositionofskys2
-            //top1 = frameElement.parentElement.firstChild.getBoundingClientRect().top + frameElement.parentElement.firstChild.ownerDocument.defaultView.pageYOffset;
+
+
+
+        top1 = fireplaceobj.thepositionofskys;
+        //top1 = frameElement.parentElement.firstChild.getBoundingClientRect().top + frameElement.parentElement.firstChild.ownerDocument.defaultView.pageYOffset;
+
 
 
 
@@ -353,15 +357,15 @@
             "margin:0;" +
             "pointer-events:none;" +
             "}" +
-            "#leftSky {" +
+            "#left {" +
             "position: absolute;" +
             "margin-left:" + marginleftLeftSky + "px;" +
-            "top:" + top2 + "px;" +
+            "top:" + top1 + "px;" +
             "}" +
-            "#rightSky {" +
+            "#right {" +
             "position: absolute;" +
             "margin-left:" + marginleftRightSky + "px;" +
-            "top:" + top2 + "px;" +
+            "top:" + top1 + "px;" +
             "}";
         stickySkys.append(style1);
         style3 = document.createElement("style");
@@ -382,6 +386,7 @@
             var rect = leadboard.getBoundingClientRect();
 
             y = rect.top
+            console.log("imnostsure", y)
             if (y > 62) {
                 stickySkys.style.position = "absolut";
                 style1.innerHTML =
@@ -398,12 +403,12 @@
                     "position: absolute;" +
                     "margin-left: 160px;" +
                     "}" +
-                    "#leftSky {" +
+                    "#left {" +
                     "position: absolute;" +
                     "margin-left:" + marginleftLeftSky + "px;" +
                     "top:" + top2 + "px;" +
                     "}" +
-                    "#rightSky {" +
+                    "#right {" +
                     "position: absolute;" +
                     "margin-left:" + marginleftRightSky + "px;" +
                     "top:" + top2 + "px;" +
@@ -425,15 +430,15 @@
                     "position: absolute;" +
                     "margin-left: 160px;" +
                     "}" +
-                    "#leftSky {" +
+                    "#left {" +
                     "position: fixed;" +
                     "margin-left:" + marginleftLeftSky + "px;" +
-                    "top:60px" +
+                    "top:" + top1 + "px" +
                     "}" +
-                    "#rightSky {" +
+                    "#right {" +
                     "position: fixed;" +
                     "margin-left:" + marginleftRightSky + "px;" +
-                    "top:60px" +
+                    "top:" + top1 + "px" +
                     "}";
 
             }
