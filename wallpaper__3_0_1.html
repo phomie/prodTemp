@@ -233,14 +233,14 @@
 
     //jpeg
 
-    jpeg_Billboard = "[%jpeg_Billboard%]"
-    jpeg_Sky = "[%jpeg_Sky%]"
+    jpeg_Billboard = "[%IMAGE_SUPERBANNER%]"
+    jpeg_Sky = "[%IMAGE_RIGHTSKY%]"
 
 
 
 
     //Iframes
-    ifrmBillboard = "[%IFRAME_LEADERBOARD%]";
+    ifrmBillboard = "[%IFRAME_SUPERBANNER%]";
     ifrmSkyRight = "[%IFRAME_RIGHTSKY%]";
 
 
@@ -248,7 +248,7 @@
     // JS REDIRECTS
 
     jsSkyRightRedirect = `[%JAVASCRIPT_SKYRIGHT%]`;
-    jsBillboardRedirect = `[%JAVASCRIPT_LEADERBOARD%]`;
+    jsBillboardRedirect = `[%JAVASCRIPT_SUPERBANNER%]`;
 
 
 
@@ -390,12 +390,12 @@
 
 
             frameContentBillboard.contentWindow.document.open();
-            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%jpeg_Billboard%]" + ` width="729" height="90"></body></html></head>`);
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%IMAGE_SUPERBANNER%]" + ` width="729" height="90"></body></html></head>`);
             frameContentBillboard.contentWindow.document.close();
 
 
             frameContentSkyright.contentWindow.document.open();
-            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%jpeg_Sky%]" + ` width="160" height="600"></body></html></head>`);
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><img src="` + "[%IMAGE_RIGHTSKY%]" + ` width="160" height="600"></body></html></head>`);
             frameContentSkyright.contentWindow.document.close();
 
         }
@@ -470,12 +470,12 @@
 
 
             frameContentBillboard.contentWindow.document.open();
-            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%hyperlink%]' target="_blank"><img src="` + "[%jpeg_Billboard%]" + ` width="729" height="90"></a></body></html></head>`);
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%CLICKTROUGHURL%]' target="_blank"><img src="` + "[%IMAGE_SUPERBANNER%]" + ` width="729" height="90"></a></body></html></head>`);
             frameContentBillboard.contentWindow.document.close();
 
 
             frameContentSkyright.contentWindow.document.open();
-            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%hyperlink%]' target="_blank"><img src="` + "[%jpeg_Sky%]" + ` width="160" height="600"></a></body></html></head>`);
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href='%%CLICK_URL_UNESC%%[%CLICKTROUGHURL%]' target="_blank"><img src="` + "[%IMAGE_RIGHTSKY%]" + ` width="160" height="600"></a></body></html></head>`);
             frameContentSkyright.contentWindow.document.close();
 
         }
