@@ -21,10 +21,6 @@ function ResponseAdKEY() {
 }
 ResponseAdKEY()
     //******************************************* */
-
-
-
-
 function ResponseAdKEY() {
     function findObjectByKey(array, key) {
         for (var i = 0; i < array.length; i++) {
