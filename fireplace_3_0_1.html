@@ -98,10 +98,10 @@
         }
 
     }
-
-    topcontainerforhome = window.top.document.querySelector('.site__ads-top-content')
-    topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl;
-
+    if (basehost == "daskcorezept") {
+        topcontainerforhome = window.top.document.querySelector('.site__ads-top-content')
+        topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl;
+    }
 
 
 
