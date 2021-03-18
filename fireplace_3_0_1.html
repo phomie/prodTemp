@@ -23,7 +23,8 @@
     }
     fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte)
     billboardwidth = fireplaceobj.billboardwidth;
-    billboardwidth1 = billboardwidth - 8;
+    billboardwidth1 = billboardwidth;
+    console.log('billboardwidth1', billboardwidth1);
     leadboardmarginleft = fireplaceobj.leadboardmarginleft;
 
     leadboardcalc = fireplaceobj.leadboardcalc
@@ -98,11 +99,15 @@
         }
 
     }
-    if (basehost == "daskcorezept") {
+    /*
+    if (basehost == "daskochrezept") {
+        console.log("where are here ")
         topcontainerforhome = window.top.document.querySelector('.site__ads-top-content')
         topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl;
+        console.log('fireplaceobj.topcontSizeMl', fireplaceobj.topcontSizeMl + "px");
+        console.log('topcontainerforhome', topcontainerforhome);
     }
-
+*/
 
 
     //frameElement.parentElement.firstChild
@@ -130,16 +135,16 @@
 
 
     //Iframes
-    ifrmBillboard = "[%Iframeurl_Billboard%]";
-    ifrmSkyLeft = "[%Iframeurl_SkyLeft%]";
-    ifrmSkyRight = "[%Iframeurl_SkyRight%]";
+    ifrmBillboard = "[%IFRAME_REDIRECT_LEADERBOARD%]";
+    ifrmSkyLeft = "[%IFRAME_REDIRECT_SKYLEFT%]";
+    ifrmSkyRight = "[%IFRAME_REDIRECT_SKYRIGHT%]";
 
 
 
     // JS REDIRECTS
-    jsSkyLeftRedirect = `[%SkyLeft_JS_Redirect%]`;
-    jsSkyRightRedirect = `[%SkyRight_JS_Redirect%]`;
-    jsBillboardRedirect = `[%Billboard_JS_Redirect%]`;
+    jsSkyLeftRedirect = `[%JS_REDIRECT_SKYLEFT%]`;
+    jsSkyRightRedirect = `[%JS_REDIRECT_SKYRIGHT%]`;
+    jsBillboardRedirect = `[%JS_REDIRECT_LEADERBOARD%]`;
 
 
     obj.regex(jsSkyLeftRedirect);
