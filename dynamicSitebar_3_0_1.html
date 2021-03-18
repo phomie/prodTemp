@@ -3,7 +3,15 @@
 <head>
     <script>
         var contenttyp = window.parent.atf.getContentType();
-        var basehost = window.location.hostname.split(".")[1];
+        var basehosttry = window.location.hostname.split(".")[0];
+        if (basehosttry == "www") {
+            basehost = window.location.hostname.split(".")[1]
+        } else {
+            basehost = window.location.hostname.split(".")[0]
+        }
+
+
+        var horst = window.location.hostname;
         var creativeType = "dynamicSitebar";
         var obj = window.parent.creativeSettings;
         var dataToRetrieve = basehost;
@@ -38,9 +46,6 @@
         } else {
             themaxheight = thefirstframe.clientHeight;
         }
-
-
-
 
         for (const prop in sitebarobj) {
             singleresult = sitebarobj[prop];
@@ -121,7 +126,6 @@
             }
             return;
         });
-
         window.parent.addEventListener("resize", function() {
             if (!throttled) {
                 let {
@@ -133,8 +137,9 @@
                     throttled = false;
                 }, delay);
             }
-            return;
         });
+
+
         resizing();
     </script>
 </head>
@@ -144,11 +149,14 @@
 </body>
 
 <script>
+    celtratag = `[%CELTRATAG%]`
+
     iframeurl = "[%IFRAME_REDIRECT%]";
     jsredirect = `[%JAVASCRIPT_REDIRECT%]`;
 
     obj.regex(jsredirect)
 
+    //JSREDIRECT
     if (obj.regex(jsredirect) == true) {
         thecrativecodes = document.createElement("script");
         thecrativecodes.innerHTML = `document.write("<scr" + "ipt src='` + jsredirect + `'></scr" + "ipt>");`;
@@ -160,12 +168,13 @@
 
     }
 
-    if (iframeurl == "") {
-        console.log("iframeurl_not_filled");
+    if (jsredirect != "") {
+        console.log("jsredirectcase")
         document.getElementsByTagName("html")[0].style.height = 100 + "%";
         document.getElementsByTagName("body")[0].style.height = 100 + "%";
 
         function theDSA() {
+
             theDiv = document.getElementById("thecreativecont");
             theDiv.style.maxHeight = 100 + "%";
             theDiv.style.height = 100 + "%";
@@ -183,7 +192,39 @@
             hopethe.appendChild(thecrativecodes);
         }
         theDSA();
-    } else {
+    }
+    if (celtratag != "") {
+        console.log("celtraTagCase")
+        document.getElementsByTagName("html")[0].style.height = 100 + "%";
+        document.getElementsByTagName("body")[0].style.height = 100 + "%";
+
+        function theDSA() {
+            theDiv = document.getElementById("thecreativecont");
+            theDiv.style.maxHeight = 100 + "%";
+            theDiv.style.height = 100 + "%";
+            theDiv.style.width = 100 + "%";
+
+            dsa = obj.iframecreator(100 + "%", 100 + "%", "about:blank", "theframe");
+            theDiv.appendChild(dsa);
+            var frameObj = document.getElementById("theframe").contentWindow.document;
+            console.log('frameObj', frameObj);
+
+            frameObj.open();
+            frameObj.write(celtratag);
+            frameObj.close();
+
+            /*
+                 hopethe = frameObj.contentWindow.document.getElementsByTagName("body")[0];
+                  console.log('hopethe', hopethe);
+                  hopethe.appendChild(celtratag)
+*/
+
+
+        }
+        theDSA();
+    }
+    if (iframeurl != "") {
+        console.log("IframeCase")
         document.getElementsByTagName("html")[0].style.height = 100 + "%";
         document.getElementsByTagName("body")[0].style.height = 100 + "%";
 

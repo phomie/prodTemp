@@ -4000,6 +4000,122 @@ function() {
 
             },
         },
+        onvista: {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+
+            },
+
+            channel: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 19,
+                    thepositionofskys2: 19,
+                    leadboardmarginleft: -200,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 160,
+                            marginleftLeftSky: -200,
+                            marginleftRightSky: 1005,
+                            marginlefttehstickxs: 0,
+                            left: 0,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1100,
+                            left: 96,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+
+
+            },
+        },
 
 
     }

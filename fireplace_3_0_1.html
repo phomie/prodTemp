@@ -24,11 +24,10 @@
     fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte)
     billboardwidth = fireplaceobj.billboardwidth;
     billboardwidth1 = billboardwidth;
-    console.log('billboardwidth1', billboardwidth1);
     leadboardmarginleft = fireplaceobj.leadboardmarginleft;
 
     leadboardcalc = fireplaceobj.leadboardcalc
-    console.log('leadboardcalc', leadboardcalc);
+
 
     if (freezedSkys) {
         for (const prop in (fireplaceobj.whichcase[0].true[0])) {
@@ -100,14 +99,15 @@
 
     }
     /*
-    if (basehost == "daskochrezept") {
+      if (basehost == "daskochrezept") {
         console.log("where are here ")
         topcontainerforhome = window.top.document.querySelector('.site__ads-top-content')
-        topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl;
-        console.log('fireplaceobj.topcontSizeMl', fireplaceobj.topcontSizeMl + "px");
+        topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl+"px";
+        console.log('fireplaceobj.topcontSizeMl', fireplaceobj.topcontSizeMl);
         console.log('topcontainerforhome', topcontainerforhome);
     }
 */
+
 
 
     //frameElement.parentElement.firstChild
@@ -148,7 +148,6 @@
 
 
     obj.regex(jsSkyLeftRedirect);
-    console.log('obj.regex', obj.regex);
     obj.regex(jsSkyRightRedirect);
     obj.regex(jsBillboardRedirect);
 
@@ -169,7 +168,6 @@
 
     } else {
         thebillboardCodes = document.createElement("script");
-        console.log('thebillboardCodes', thebillboardCodes);
         thebillboardCodes.type = "text/javascript";
         thebillboardCodes.textContent = jsBillboardRedirect;
 
@@ -398,7 +396,6 @@
             var rect = leadboard.getBoundingClientRect();
 
             y = rect.top
-            console.log("imnostsure", y)
             if (y > 62) {
                 stickySkys.style.position = "absolut";
                 style1.innerHTML =
