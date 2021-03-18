@@ -57,6 +57,26 @@ function() {
             }
 
         },
+        findAdkeyValue: function ResponseAdKEY() {
+            function findObjectByKey(array, key) {
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i][key]) {
+                        return array[i][key];
+                    }
+                }
+            }
+            theDataLayer = window.parent.dataLayer;
+            objToAnalyse = findObjectByKey(theDataLayer, ['atf-targeting'][0]);
+            if (objToAnalyse) {
+                return objToAnalyse.adkeyword
+            } else {
+                function GetAdKeyValue(object) {
+                    return document.querySelector('atf-ad-slot').getAttribute("atf-targeting-adkeyword")
+                }
+                return GetAdKeyValue()
+            }
+        },
+
 
 
 
@@ -151,199 +171,9 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-
-                },
-                wallpaper: {
-
-                },
-            },
         },
-        bunte: {
-            homepage: {
-                fireplace: {
-                    billboardwidth: 1216,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 235,
-                            marginleftLeftSky: -920,
-                            marginleftRightSky: 440,
-                            marginlefttehstickxs: 0,
-                            left: -83,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 66,
-                            marginleftLeftSky: -94,
-                            marginleftRightSky: 1266,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
 
-
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1000,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 744,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 1121,
-                            marginlefttehstickxs: 0,
-                            left: 925,
-                            bottom: 407,
-                            condition: 0,
-                            leadboardmarginleft: -160,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 525,
-                            bottom: 408,
-                            condition: 0,
-                            leadboardmarginleft: 0,
-                        }],
-                    }],
-
-
-
-                },
-            },
-            channel: {
-
-                fireplace: {
-
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1000,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 744,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
-                            marginlefttehstickxs: 0,
-                            left: 925,
-                            bottom: 407,
-                            condition: 0,
-                            leadboardmarginleft: -160,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 525,
-                            bottom: 408,
-                            condition: 0,
-                            leadboardmarginleft: 0,
-                        }],
-                    }],
-                },
-
-            },
-            article: {
-                fireplace: {
-
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1000,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 744,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
-                            marginlefttehstickxs: 0,
-                            left: 925,
-                            bottom: 407,
-                            condition: 0,
-                            leadboardmarginleft: -160,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 525,
-                            bottom: 408,
-                            condition: 0,
-                            leadboardmarginleft: 0,
-                        }],
-                    }],
-                },
-
-            },
-            gallerie: {
-                fireplace: {
-
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1000,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 744,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -292,
-                            marginleftRightSky: 440,
-                            marginlefttehstickxs: 0,
-                            left: 925,
-                            bottom: 407,
-                            condition: 0,
-                            leadboardmarginleft: -160,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 525,
-                            bottom: 408,
-                            condition: 0,
-                            leadboardmarginleft: 0,
-                        }],
-                    }],
-                },
-            },
-        },
         daskochrezept: {
             homepage: {
                 fireplace: {
@@ -352,6 +182,7 @@ function() {
                     thepositionofskys: 0,
                     thepositionofskys2: 0,
                     leadboardmarginleft: -160,
+                    topcontSizeMl: -130,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 348,
@@ -392,7 +223,7 @@ function() {
                             marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
-                            bottom: 407,
+                            bottom: 400,
                             condition: 0,
                             leadboardmarginleft: -240,
                         }],
@@ -400,7 +231,7 @@ function() {
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
                             left: 525,
-                            bottom: 408,
+                            bottom: 400,
                             condition: 0,
                             leadboardmarginleft: 0,
                         }],
@@ -458,7 +289,7 @@ function() {
                             marginleftRightSky: 1365,
                             marginlefttehstickxs: 0,
                             left: 925,
-                            bottom: 407,
+                            bottom: 400,
                             condition: 0,
                             leadboardmarginleft: -240,
                         }],
@@ -466,7 +297,7 @@ function() {
                             marginleftBillboard: -53,
                             marginleftRightSky: 675,
                             left: 525,
-                            bottom: 408,
+                            bottom: 400,
                             condition: 0,
                             leadboardmarginleft: 0,
                         }],
@@ -513,8 +344,8 @@ function() {
                 wallpaper: {
                     billboardwidth: 744,
                     leadboardcalc: 1710,
-                    thepositionofskys: 20,
-                    thepositionofskys2: 20,
+                    thepositionofskys: 15,
+                    thepositionofskys2: 15,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -48,
@@ -537,43 +368,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1000,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 744,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -48,
-                            marginleftRightSky: 1365,
-                            marginlefttehstickxs: 0,
-                            left: 925,
-                            bottom: 407,
-                            condition: 0,
-                            leadboardmarginleft: -240,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 525,
-                            bottom: 408,
-                            condition: 0,
-                            leadboardmarginleft: 0,
-                        }],
-                    }],
-                },
-            },
         },
 
         emotion: {
@@ -724,21 +519,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-
-                },
-            },
 
         },
         "guter-rat": {
@@ -941,46 +722,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 279,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         superillu: {
@@ -1183,46 +925,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 279,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         mylife: {
@@ -1400,46 +1103,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 176,
-                    thepositionofskys2: 176,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 959,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         esquire: {
@@ -1617,46 +1281,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 959,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         elle: {
@@ -1834,46 +1459,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 959,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         harpersbazaar: {
@@ -1881,23 +1467,23 @@ function() {
                 fireplace: {
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
+                    thepositionofskys: 64,
+                    thepositionofskys2: 64,
                     leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: 145,
-                            marginleftLeftSky: -162,
-                            marginleftRightSky: 943,
+                            marginleftBillboard: 362,
+                            marginleftLeftSky: -612,
+                            marginleftRightSky: 748,
                             marginlefttehstickxs: 0,
-                            left: 13,
+                            left: -75,
                             bottom: 0,
-                            condition: 7,
+                            condition: 0,
                         }],
                         false: [{
-                            marginleftBillboard: 66,
+                            marginleftBillboard: -24,
                             marginleftLeftSky: -94,
-                            marginleftRightSky: 1006,
+                            marginleftRightSky: 1266,
                             left: 94,
                             bottom: 0,
                             condition: 0,
@@ -1945,6 +1531,30 @@ function() {
             channel: {
 
                 fireplace: {
+                    billboardwidth: 1200,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 75,
+                    thepositionofskys2: 75,
+                    leadboardmarginleft: -160,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: 274,
+                            marginleftLeftSky: -612,
+                            marginleftRightSky: 748,
+                            marginlefttehstickxs: 0,
+                            left: -75,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                        false: [{
+                            marginleftBillboard: -24,
+                            marginleftLeftSky: -94,
+                            marginleftRightSky: 1266,
+                            left: 94,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
 
                 },
                 dynamicSitebar: {
@@ -1989,14 +1599,14 @@ function() {
 
                     billboardwidth: 1200,
                     leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
+                    thepositionofskys: 75,
+                    thepositionofskys2: 75,
                     leadboardmarginleft: -160,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: 145,
-                            marginleftLeftSky: -920,
-                            marginleftRightSky: 440,
+                            marginleftBillboard: 274,
+                            marginleftLeftSky: -612,
+                            marginleftRightSky: 748,
                             marginlefttehstickxs: 0,
                             left: -75,
                             bottom: 0,
@@ -2051,46 +1661,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 959,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         instyle: {
@@ -2268,47 +1839,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
 
-
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -457,
-                            marginleftRightSky: 959,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 613,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-                },
-            },
 
         },
         einfachbacken: {
@@ -2322,7 +1853,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
+                            marginleftLeftSky: -907,
                             marginleftRightSky: 298,
                             marginlefttehstickxs: 0,
                             left: 13,
@@ -2356,7 +1887,7 @@ function() {
                     whichcase: [{
                         true: [{
                             marginleftBillboard: -438,
-                            marginleftRightSky: 920,
+                            marginleftRightSky: 978,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -2509,70 +2040,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         eatbetter: {
@@ -2773,73 +2241,9 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
-
         slowlyveggie: {
             homepage: {
                 fireplace: {
@@ -2847,12 +2251,12 @@ function() {
                     leadboardcalc: 1710,
                     thepositionofskys: 0,
                     thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
+                    leadboardmarginleft: -161,
                     whichcase: [{
                         true: [{
                             marginleftBillboard: 160,
-                            marginleftLeftSky: -972,
-                            marginleftRightSky: 290,
+                            marginleftLeftSky: -908,
+                            marginleftRightSky: 297,
                             marginlefttehstickxs: 0,
                             left: 13,
                             bottom: 0,
@@ -3038,70 +2442,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         freundin: {
@@ -3302,70 +2643,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         "meine-familie-und-ich": {
@@ -3566,70 +2844,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         "mein-schoenes-land": {
@@ -3830,70 +3045,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         haus: {
@@ -3940,8 +3092,8 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
+                            marginleftBillboard: -353,
+                            marginleftRightSky: 1060,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -4005,8 +3157,8 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
+                            marginleftBillboard: -353,
+                            marginleftRightSky: 1060,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -4071,8 +3223,8 @@ function() {
                     thepositionofskys2: 0,
                     whichcase: [{
                         true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
+                            marginleftBillboard: -353,
+                            marginleftRightSky: 1060,
                             marginlefttehstickxs: 0,
                             left: 1180,
                             bottom: 400,
@@ -4094,70 +3246,7 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    leadboardmarginleft: -160,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -906,
-                            marginleftRightSky: 298,
-                            marginlefttehstickxs: 0,
-                            left: 13,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1124,
-                            left: 94,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
 
-
-
-
-                },
-            },
 
         },
         gofeminin: {
@@ -4424,7 +3513,77 @@ function() {
                 },
 
             },
-            gallerie: {
+
+
+        },
+        "focus-arztsuche": {
+            homepage: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
+
+
+                },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+            },
+            channel: {
+
                 fireplace: {
                     billboardwidth: 1045,
                     leadboardcalc: 1710,
@@ -4486,9 +3645,76 @@ function() {
 
 
 
+                },
+
+            },
+            article: {
+                fireplace: {
+                    billboardwidth: 1045,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    leadboardmarginleft: -131,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -146,
+                            marginleftLeftSky: -949,
+                            marginleftRightSky: 255,
+                            marginlefttehstickxs: 0,
+                            left: 247,
+                            bottom: 0,
+                            condition: 7,
+                        }],
+                        false: [{
+                            marginleftBillboard: 80,
+                            marginleftLeftSky: -79,
+                            marginleftRightSky: 1124,
+                            left: 332,
+                            bottom: 0,
+                            condition: 0,
+                        }],
+                    }],
 
                 },
+                dynamicSitebar: {
+                    maxheight: 1400,
+                    maxheight1: 1200,
+                    maxheight2: 1150,
+                    maxheight3: 800,
+                    maxheight4: 600,
+
+                },
+                wallpaper: {
+                    billboardwidth: 728,
+                    leadboardcalc: 1710,
+                    thepositionofskys: 18,
+                    thepositionofskys2: 18,
+                    whichcase: [{
+                        true: [{
+                            marginleftBillboard: -478,
+                            marginleftRightSky: 910,
+                            marginlefttehstickxs: 0,
+                            left: 1180,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -440,
+                        }],
+                        false: [{
+                            marginleftBillboard: -53,
+                            marginleftRightSky: 675,
+                            left: 800,
+                            bottom: 400,
+                            condition: 0,
+                            leadboardmarginleft: -250,
+                        }],
+                    }],
+
+
+
+                },
+
             },
+
 
         },
         netdoktor: {
@@ -4623,7 +3849,6 @@ function() {
                 },
             },
             channel: {
-
                 fireplace: {
                     billboardwidth: 1045,
                     leadboardcalc: 1710,
@@ -4752,71 +3977,6 @@ function() {
                 },
 
             },
-            gallerie: {
-                fireplace: {
-                    billboardwidth: 1045,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 19,
-                    thepositionofskys2: 19,
-                    leadboardmarginleft: -200,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: 160,
-                            marginleftLeftSky: -200,
-                            marginleftRightSky: 1005,
-                            marginlefttehstickxs: 0,
-                            left: 0,
-                            bottom: 0,
-                            condition: 7,
-                        }],
-                        false: [{
-                            marginleftBillboard: 80,
-                            marginleftLeftSky: -79,
-                            marginleftRightSky: 1100,
-                            left: 96,
-                            bottom: 0,
-                            condition: 0,
-                        }],
-                    }],
-                },
-                dynamicSitebar: {
-                    maxheight: 1400,
-                    maxheight1: 1200,
-                    maxheight2: 1150,
-                    maxheight3: 800,
-                    maxheight4: 600,
-                },
-                wallpaper: {
-                    billboardwidth: 728,
-                    leadboardcalc: 1710,
-                    thepositionofskys: 0,
-                    thepositionofskys2: 0,
-                    whichcase: [{
-                        true: [{
-                            marginleftBillboard: -438,
-                            marginleftRightSky: 978,
-                            marginlefttehstickxs: 0,
-                            left: 1180,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -412,
-                        }],
-                        false: [{
-                            marginleftBillboard: -53,
-                            marginleftRightSky: 675,
-                            left: 633,
-                            bottom: 400,
-                            condition: 0,
-                            leadboardmarginleft: -250,
-                        }],
-                    }],
-
-
-
-
-                },
-            },
-
         },
 
 

@@ -1,0 +1,1 @@
+document.getElementsByClassName('solo-button action-button mat-button mat-button-base mat-raised-button')[0].click()
