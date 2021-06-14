@@ -31,6 +31,8 @@ function ResponseAdKEY() {
     }
     theDataLayer = window.parent.dataLayer;
     objToAnalyse = findObjectByKey(theDataLayer, ['atf-targeting'][0]);
+
+    
     if (objToAnalyse) {
         return objToAnalyse.adkeyword
     } else {
@@ -41,3 +43,30 @@ function ResponseAdKEY() {
     }
 }
 ResponseAdKEY()
+
+
+
+var scriptElem = window.parent.document.head.appendChild(document.createElement('script'));
+scriptElem.innerHTML = 
+`const understitaltemplate= ()=> {
+      const understitialVar = "understitialIsSet"
+        return understitialVar
+        
+      }`;
+console.log(scriptElem)
+
+var scriptElemte = window.parent.document.head.appendChild(document.createElement('script'));
+scriptElemte.innerHTML = 
+` thedoc=document.querySelectorAll('div[id^="ad-entity-"]')[3]
+thedoc.style.height="auto"
+      `;
+console.log(scriptElemte)
+
+
+
+
+thecont = window.parent.document.querySelectorAll("[id^='#ad-entity-']")
+thecont.style.height="auto";
+
+tehcont =frameElement.parentElement.parentElement.parentElement.parentElement 
+thecont.style.height="auto";

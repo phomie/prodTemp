@@ -1,0 +1,163 @@
+<html style="padding-top: 24px;">
+	<head>
+		<script>
+			var frameElem = frameElement;
+			var frameContainer = frameElem.parentElement;
+         frameContainer.style.maxHeight=100+"vh"; 
+			var frameContainerParent = frameContainer.parentElement;
+			var frameContainerParentParentParent = frameContainerParent.parentElement.parentElement;
+			var parentWin = parent.window;
+			var footers = parent.document.querySelectorAll('footer');
+			var computedStyles;
+			
+			frameContainerParent.style.position = 'fixed';
+			frameContainerParent.style.bottom = '0';
+			frameContainerParent.style.left = '0';
+			frameContainerParent.style.width = '100%';
+			frameContainerParent.style.zIndex = '9999';
+			frameContainerParent.style.backgroundColor = 'transparent';
+			frameContainer.style.backgroundColor = 'transparent';
+			frameContainer.style.margin = '0';
+			frameElem.style.margin = '0 auto';
+			frameElem.style.padding = '0';
+			frameElem.style.border = '0';
+			frameElem.style.backgroundColor = 'transparent';
+
+      if(parentWin.innerWidth < 450){
+        console.log("MOBILE")
+
+        frameElem.style.height = '180px';
+		  	frameElem.style.width = '330px';
+			   
+
+
+      }else{
+        console.log("DESKTOP")
+        frameElem.parentElement.style.width=970;
+        frameElem.style.height = '275px';
+		  	frameElem.style.width = '970px';
+
+      }
+
+			
+			
+			if (typeof footers != 'undefined' && footers !== null) {
+				if (footers.length > 0) {
+					for (var footerCnt = 0; footerCnt < footers.length; footerCnt++) {
+						computedStyles = parentWin.getComputedStyle(footers[footerCnt]);
+
+						if (computedStyles.getPropertyValue('position') === 'fixed') {
+							frameContainerParent.style.bottom = footers[footerCnt].offsetHeight + 'px';
+						} else if (computedStyles.getPropertyValue('position') === 'static' || computedStyles.getPropertyValue('position') === 'relative' && footers[footerCnt].offsetHeight > 0) {
+							footers[footerCnt].setAttribute('data-sticky-mobile-ad', 'true');
+							footers[footerCnt].style.paddingBottom = '174px';
+						}
+					}
+				}			
+			}
+     
+			
+
+		</script>
+	</head>
+	<body>
+		<a id="atf-sticky-mobile-ad" target="_blank" style="width: 100%; height: 100%; position: relative; display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center;">
+      [%3rdParty%]
+      [%3rdPartyMobile%]
+		</a>
+		<img id="atf-sticky-mobile-close" src style="position: absolute; height: 30px; width: 30px; top: 3px; cursor: pointer; z-index: 1;" />
+		<script>
+			var ad = document.getElementById('atf-sticky-mobile-ad');
+			var closeBtn = document.getElementById('atf-sticky-mobile-close');
+			
+			ad.style.backgroundColor = '[%BackgroundColor%]' !== '' ? '[%BackgroundColor%]' : 'transparent';
+			
+			if ('[%Hyperlink%]' !== '') {
+				ad.setAttribute('href', '%%CLICK_URL_UNESC%%[%Hyperlink%]');
+				
+				ad.addEventListener('click touch', function (event) {
+					if (event.target !== event.currentTarget) {
+		        return;
+		      }
+				});
+			} else {
+				ad.addEventListener('click touch', function (event) {
+					event.preventDefault();
+				});
+			}
+			
+			if ('[%Image%]' !== '' && '[%ImageRetina%]' !== '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image%] 1x, [%ImageRetina%] 2x"/>');
+			} else if ('[%Image%]' === '' && '[%ImageRetina%]' !== '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%ImageRetina%] 2x"/>');
+			} else if ('[%Image%]' !== '' && '[%ImageRetina%]' === '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image%] 1x"/>');
+			}
+			
+			closeBtn.style.display = 'none';
+			closeBtn.src = '[%CloseButton%]' !== '' ? '[%CloseButton%]' : 'data:image/jpeg;base64,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';
+			/*
+			var checkAdLoadedIntvlCnt = 0;
+		
+			var checkAdLoaded = setInterval(function () {
+				if (typeof document.querySelectorAll('#atf-sticky-mobile-ad img') !== 'undefined' && document.querySelectorAll('#atf-sticky-mobile-ad img') !== null) {
+					if (document.querySelectorAll('#atf-sticky-mobile-ad img').length > 0 && document.querySelectorAll('#atf-sticky-mobile-ad img')[0].complete) {
+						killInterval(checkAdLoaded);
+						placeCloseButtoni(document.querySelectorAll('#atf-sticky-mobile-ad img')[0]);
+					}
+				}
+				
+				if (checkAdLoadedIntvlCnt > 100) {
+					killInterval(checkAdLoaded);
+					placeCloseButtoni(ad.firstElementChild);
+				}
+				
+				checkAdLoadedIntvlCnt++;
+			}, 20);
+			
+      */
+    
+      /*
+			function placeCloseButtoni (adChild) {				
+				if (adChild.getBoundingClientRect().left > 15) {	
+          console.log('adChild.getBoundingClientRect().left', adChild);
+					closeBtn.style.left = (adChild.getBoundingClientRect().left + adChild.offsetWidth - 15) + 'px';
+          console.log('adChild.getBoundingClientRect().left', 	closeBtn.style.left);
+          
+				} else {	
+					closeBtn.style.right = '0px';
+				}
+				
+				closeBtn.style.display = 'block';
+			}
+			
+			function killInterval (interv) {
+				clearInterval(interv);
+			}
+			*/
+      
+      closeBtn.style.right = '0px';
+      closeBtn.style.display = 'block';
+			function closeAd () {
+				frameContainerParent.style.display = 'none';
+				
+				if (typeof parent.document.querySelector('[data-sticky-mobile-ad="true"]') != 'undefined' && parent.document.querySelector('[data-sticky-mobile-ad="true"]') !== null) {
+					parent.document.querySelector('[data-sticky-mobile-ad="true"]').removeAttribute('style');
+					parent.document.querySelector('[data-sticky-mobile-ad="true"]').removeAttribute('data-sticky-mobile-ad');
+				}
+			}
+			
+			closeBtn.addEventListener('click', closeAd);
+			closeBtn.addEventListener('touch', closeAd);
+      var footerElement =window.parent.document.querySelector('[atf-formatsize="4x4"]')
+      footerElement.style.textAlign="center"
+      
+      /*  var obj = window.parent.creativeSettings;
+      		obj.checkfordiv()*/
+		</script>
+      <div style="display:none">
+            [%3rdParty_tracking%]
+        		[%2nd3rdPartytracking%]
+      </div>
+	</body>
+</html>

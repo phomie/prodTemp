@@ -10,7 +10,6 @@
             basehost = window.location.hostname.split(".")[0]
         }
 
-
         var horst = window.location.hostname;
         var creativeType = "dynamicSitebar";
         var obj = window.parent.creativeSettings;
@@ -33,19 +32,7 @@
             creativetypte
         );
 
-        thefirstframe = frameElement.parentElement.parentElement.firstChild.firstChild;
 
-        if (basehost == "gofeminin") {
-            findit = frameElement.parentElement.parentElement.parentElement.parentElement
-            finditheight = findit.clientHeight
-            console.log('finditheight', finditheight);
-
-            themaxheight = finditheight;
-
-
-        } else {
-            themaxheight = thefirstframe.clientHeight;
-        }
 
         for (const prop in sitebarobj) {
             singleresult = sitebarobj[prop];
@@ -72,14 +59,14 @@
         }
 
         var resizing = function dsaBox() {
-            atfadslot = frameElement.parentNode.parentElement.parentElement;
 
-            googledovheight = atfadslot.clientHeight;
-            googledovwidth = atfadslot.clientWidth;
+            theexactheight = window.parent.innerHeight;
             boxright = frameElement.parentElement.firstChild;
             boxright.style.position = "absolut";
-            boxright.style.height = googledovheight + "px";
-            theexactheight = window.parent.innerHeight;
+
+
+
+
             if (theexactheight >= 1350) {
                 boxright.style.maxHeight = maxheight + "px";
             } else if (theexactheight >= 1200 && theexactheight <= 1350) {
@@ -93,27 +80,46 @@
             boxright.style.minHeight = 600 + "px";
             boxright.style.maxWidth = 800 + "px";
             boxright.style.minWidth = 300 + "px";
-            var posinBrowser = boxright.getBoundingClientRect();
-            var left = posinBrowser.left;
-            var topto = top.parent.innerWidth;
-            var newbreite = topto - left + - +8;
-            boxwidth = boxright.style.width = newbreite + "px";
-            toptobor = posinBrowser.top;
-            var eh = window.parent.innerHeight;
-            var therealhight = eh - toptobor;
-            boxheight = boxright.style.height = therealhight + "px";
+
+            if (basehost == "gofeminin" || basehost == "instyle" || basehost == "elle" || basehost == "freundin" || basehost == "harpersbazaar" || basehost == "esquire") {
+                current_window = window;
+                var bh = parent.window.innerHeight - 155;
+                var bw = parent.window.innerWidth;
+                current_window = current_window.parent;
+                current_element = window.frameElement;
+                current_element = current_element.offsetParent;
+                var viewportOffset = current_element.getBoundingClientRect();
+                var left = viewportOffset.left;
+                var sitebar_width = bw - left;
+                window.frameElement.height = bh;
+                window.frameElement.width = sitebar_width;
+
+                boxwidth = window.frameElement.width = sitebar_width + "px";
+
+                boxheight = window.frameElement.height = bh + "px";
+            } else {
+                var posinBrowser = boxright.getBoundingClientRect();
+                var left = posinBrowser.left;
+                var topto = top.parent.innerWidth;
+                var newbreite = topto - left + - +8;
+                boxwidth = boxright.style.width = newbreite + "px";
+                toptobor = posinBrowser.top;
+                var eh = window.parent.innerHeight;
+                var therealhight = eh - toptobor;
+                boxheight = boxright.style.height = therealhight + "px";
+            }
+
 
             return {
                 boxheight,
-                boxwidth,
+                boxwidth
             };
         };
-        delay = 20; // delay between calls
+
+        delay = 5; // delay between calls
         throttled = false; // are we currently throttled?
-        window.parent.addEventListener("scroll", function() {
-            thetoplev = thefirstframe.getBoundingClientRect();
-            theDistancToTop = thetoplev.y;
-            if (theDistancToTop <= 80) {}
+        parent.document.getElementsByTagName('body')[0].onscroll = function() {
+
             if (!throttled) {
                 let {
                     boxheight,
@@ -124,8 +130,8 @@
                     throttled = false;
                 }, delay);
             }
-            return;
-        });
+        }
+
         window.parent.addEventListener("resize", function() {
             if (!throttled) {
                 let {
@@ -170,8 +176,8 @@
 
     if (jsredirect != "") {
         console.log("jsredirectcase")
-        document.getElementsByTagName("html")[0].style.height = 100 + "%";
-        document.getElementsByTagName("body")[0].style.height = 100 + "%";
+            // document.getElementsByTagName("html")[0].style.height = 100 + "%";
+            //document.getElementsByTagName("body")[0].style.height = 100 + "%";
 
         function theDSA() {
 
@@ -207,19 +213,9 @@
             dsa = obj.iframecreator(100 + "%", 100 + "%", "about:blank", "theframe");
             theDiv.appendChild(dsa);
             var frameObj = document.getElementById("theframe").contentWindow.document;
-            console.log('frameObj', frameObj);
-
             frameObj.open();
             frameObj.write(celtratag);
             frameObj.close();
-
-            /*
-                 hopethe = frameObj.contentWindow.document.getElementsByTagName("body")[0];
-                  console.log('hopethe', hopethe);
-                  hopethe.appendChild(celtratag)
-*/
-
-
         }
         theDSA();
     }

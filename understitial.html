@@ -1,0 +1,275 @@
+<html>
+  <head>
+    <script>
+      var frameElem = frameElement;
+      var frameContainer  = frameElem.parentElement;
+      var frameContainerParent = frameContainer.parentElement;
+      var frameNextSiblingElem = frameContainerParent.nextElementSibling;
+      var frameNextSiblingSearchTmpParent = frameContainerParent;
+      var framePrevSiblingElem = frameContainerParent.previousElementSibling;
+      var framePrevSiblingElemSearchTmpParent = frameContainerParent;
+      var parentWin = parent.window;
+      var format = '[%Format%]';
+      var formatHeight = '[%Padding%]' !== '' ? (parseInt(format.split('x')[1]) + ('[%Padding%]' * 2)) : format.split('x')[1];
+      var formatWidth = format.split('x')[0];
+      var video = false;
+      var bottomPosition = 0;
+      var frameCorrectedLeft = false;
+      var frameContainerParentBCRTop,
+        frameElemBCRTop,
+        topPosition,
+        footers,
+        siteHeader;
+
+      if (typeof parent.document.getElementById('header') !== 'undefined') {
+        if ("%%SITE%%".indexOf("elle.de") !== -1 ||
+          "%%SITE%%".indexOf("freundin.de") !== -1) {
+          if (typeof parent.document.getElementById('menu-main-navigation') !== 'undefined') {
+            siteHeader = parent.document.getElementById('menu-main-navigation');
+          } else {
+            siteHeader = parent.document.getElementById('header');
+          }
+        } else if ("%%SITE%%".indexOf("playboy.de") !== -1) {
+          if (typeof parent.document.querySelector('.navbar') !== 'undefined') {
+            siteHeader = parent.document.querySelector('.navbar');
+          } else {
+            siteHeader = parent.document.getElementById('header');
+          }
+        } else if ("%%SITE%%".indexOf("haus.de") !== -1) {
+          if (typeof parent.document.querySelector('.header__main-navigation') !== 'undefined') {
+            siteHeader = parent.document.querySelector('.header__main-navigation');
+          } else {
+            siteHeader = parent.document.getElementById('header');
+          }
+        } else {
+          siteHeader = parent.document.getElementById('header');
+        }
+      }
+      
+      frameElem.style.margin = '0';
+      frameElem.style.padding = '0';
+      frameElem.style.border = 'none';
+      frameElem.style.transform = 'translateX(-50%)';
+      frameElem.style.position = 'fixed';
+      frameElem.width = formatWidth + 'px';
+      frameElem.height = formatHeight + 'px';
+      
+      frameContainer.style.position = 'absolute';
+      frameContainer.style.clip = 'rect(auto, auto, auto, auto)';
+      frameContainer.style.width = '100%';
+      frameContainer.style.margin = '0 auto';
+      frameContainer.style.height = formatHeight + 'px';
+      frameContainer.style.width = '100%';
+      
+      frameContainerParent.style.position = 'relative';
+      frameContainerParent.style.overflow = 'hidden';
+      frameContainerParent.style.height = formatHeight + 'px';
+      
+      while (framePrevSiblingElem === null || typeof framePrevSiblingElem === 'undefined') {
+        framePrevSiblingElem = framePrevSiblingElemSearchTmpParent.parentElement.previousElementSibling;
+        framePrevSiblingElemSearchTmpParent = framePrevSiblingElemSearchTmpParent.parentElement;
+      }
+      
+      while (frameNextSiblingElem === null || typeof frameNextSiblingElem === 'undefined') {
+        frameNextSiblingElem = frameNextSiblingSearchTmpParent.parentElement.nextElementSibling;
+        frameNextSiblingSearchTmpParent = frameNextSiblingSearchTmpParent.parentElement;
+      }
+      
+      var isSmallerThanDevice = function () {
+        return siteHeader !== null && typeof siteHeader !== 'undefined' ? formatHeight > (parentWin.innerHeight - siteHeader.offsetHeight) ? true : false : formatHeight > parentWin.innerHeight ? true : false;
+      };
+      
+      parentWin.onscroll = function () {
+        scrollHandling();
+      };
+      
+      parentWin.onresize = function () {        
+        scrollHandling();
+      }
+      
+      function scrollHandling () {
+        frameContainerParentBCRTop = frameContainerParent.getBoundingClientRect().top;
+        frameElemBCRTop = frameElem.getBoundingClientRect().top;
+        
+        footers = parent.document.querySelectorAll('footer');
+        
+        if (typeof footers != 'undefined' && footers !== null) {
+  				if (footers.length > 0) {
+  					for (var footerCnt = 0; footerCnt < footers.length; footerCnt++) {
+  						computedStyles = parentWin.getComputedStyle(footers[footerCnt]);
+
+  						if (computedStyles.getPropertyValue('position') === 'fixed') {
+  							bottomPosition = footers[footerCnt].offsetHeight;
+  						}
+  					}
+  				}			
+  			}
+        
+        if (siteHeader !== null && typeof siteHeader !== 'undefined') {
+          topPosition = parentWin.getComputedStyle(framePrevSiblingElem).getPropertyValue('display') !== 'none' ? siteHeader.offsetHeight + parseInt(parentWin.getComputedStyle(framePrevSiblingElem).getPropertyValue('margin-bottom').replace('px', '')) : siteHeader.offsetHeight;
+        } else {
+          topPosition = parentWin.getComputedStyle(framePrevSiblingElem).getPropertyValue('display') !== 'none' ? 0 + parseInt(parentWin.getComputedStyle(framePrevSiblingElem).getPropertyValue('margin-bottom').replace('px', '')) : 0;
+        }
+        
+        if (isSmallerThanDevice()) {
+          frameElem.style.top = topPosition + 'px';
+          
+          if (frameContainerParentBCRTop <= frameElemBCRTop && frameContainerParentBCRTop <= topPosition && frameContainerParentBCRTop <= (parentWin.innerHeight - frameContainerParent.offsetHeight - bottomPosition)) {
+            frameElem.style.position = 'fixed';
+            frameElem.style.top = 'auto';
+            frameElem.style.bottom = bottomPosition + 'px';
+            frameElem.style.left = (frameContainer.getBoundingClientRect().left + (frameContainer.offsetWidth / 2)) + 'px';
+
+            if (video) {
+              video.style.position = 'fixed';
+            }
+          } else if (frameContainerParentBCRTop > (parentWin.innerHeight - frameContainerParent.offsetHeight - bottomPosition) && frameContainerParentBCRTop <= topPosition) {
+            frameElem.style.position = 'absolute';
+            frameElem.style.top = 0;
+            frameElem.style.bottom = 'auto';
+            frameElem.style.left = '50%';
+
+            if (video) {
+              video.style.position = 'absolute';
+            }
+          } else {
+            frameElem.style.position = 'fixed';
+            frameElem.style.top = topPosition + 'px';
+            frameElem.style.bottom = 'auto';
+            frameElem.style.left = (frameContainer.getBoundingClientRect().left + (frameContainer.offsetWidth / 2)) + 'px';
+          
+            if (video) {
+              video.style.position = 'fixed';
+            }
+          }
+        } else {
+          frameElem.style.bottom = bottomPosition + 'px';
+            
+          if (frameContainerParentBCRTop <= frameElemBCRTop && frameContainerParentBCRTop <= topPosition && frameContainerParentBCRTop <= (parentWin.innerHeight - frameContainerParent.offsetHeight - bottomPosition)) {
+            frameElem.style.position = 'fixed';
+            frameElem.style.top = topPosition + 'px';
+            frameElem.style.bottom = 'auto';
+            frameElem.style.left = (frameContainer.getBoundingClientRect().left + (frameContainer.offsetWidth / 2)) + 'px';
+
+            if (video) {
+              video.style.position = 'fixed';
+            }
+          } else if (frameContainerParentBCRTop <= (parentWin.innerHeight - frameContainerParent.offsetHeight - bottomPosition)) {
+            frameElem.style.top = 'auto';
+            frameElem.style.bottom = '0';
+            frameElem.style.position = 'absolute';
+            frameElem.style.left = '50%';
+
+            if (video) {
+              video.style.position = 'absolute';
+            }
+          } else {
+            frameElem.style.position = 'fixed';
+            frameElem.style.bottom = bottomPosition + 'px';
+            frameElem.style.left = (frameContainer.getBoundingClientRect().left + (frameContainer.offsetWidth / 2)) + 'px';
+          
+            if (video) {
+              video.style.position = 'fixed';
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="atf-understitial-ad" target="_blank"></div>
+    <script>
+    jsredirect=`[%3rdParty%]`;
+    console.log('jsredirect', jsredirect);
+
+
+
+      
+    
+      var ad = document.getElementById('atf-understitial-ad');
+      
+      if ('[%Hyperlink%]' !== '') {
+				ad.setAttribute('href', '%%CLICK_URL_UNESC%%[%Hyperlink%]');
+			} else {
+				ad.addEventListener('click touch', function (event) {
+					event.preventDefault();
+				});
+			}
+
+        if ( jsredirect){
+
+          thecrativecodes = document.createElement("script");
+          thecrativecodes.type = "text/javascript";
+    			thecrativecodes.textContent =jsredirect ;
+         // thecrativecodes.async = true;
+   
+          ad.appendChild(thecrativecodes)
+       
+      }
+      
+      if ('[%Padding%]' !== '') {
+        ad.style.paddingTop = '[%Padding%]';
+        ad.style.paddingBottom = '[%Padding%]';
+      }
+      /*
+      ad.style.display = 'block';
+      ad.style.height = '100%';
+      ad.style.boxSizing = 'border-box';
+      */
+      if ('[%Video%]' !== '') {
+        var videoPos = '[%VideoPosition%]' !== '' ? '[%VideoPosition%]' + 'px' : '0px';
+        var videoWidth = '[%VideoWidth%]' !== '' && '[%VideoWidth%]' > 0 ? '[%VideoWidth%]' + 'px' : 'auto';
+        
+        ad.insertAdjacentHTML('beforeend', '<video id="atf-ad-video" style="margin-top: ' + videoPos + '; transform: translate(-50%, -50%); top: 50%; lefT: 50%; max-width: ' + frameElem.width + ';" height="auto" width="' + videoWidth + '" loop muted autoplay plays-inline><source src="[%Video%]" type="video/mp4" codecs="H.264/MPEG-4" /></video>');
+        
+        video = document.getElementById('atf-ad-video');
+      }
+      
+      frameContainerParent.style.height = frameElem.height + 'px';
+      frameContainer.style.height = frameElem.height + 'px';
+      
+      if (/rv:11.0/i.test(navigator.userAgent)) {
+        frameContainerParent.addEventListener('mouseover', function () {
+          frameContainerParent.style.cursor = 'pointer';
+        });
+        
+        frameContainerParent.addEventListener('click', function () {
+          var frameLinks = document.querySelectorAll('[target="_blank"]');
+          
+          for (var link = 0; link < frameLinks.length; link++) {
+            if (frameLinks[link].href !== '') {
+              parentWin.open(frameLinks[link].href, '_blank');
+              
+              return false;
+            }
+          }
+        });
+      }
+      
+      if (formatWidth == '300') {
+        if ("%%SITE%%".indexOf("daskochrezept.de") !== -1) {
+          frameContainerParent.parentElement.parentElement.style.width = '100%';
+        } else if ("%%SITE%%".indexOf("bunte.de") !== -1) {
+          frameContainerParent.parentElement.style.width = '100%';
+        }
+      }
+      
+      if ("%%SITE%%".indexOf("bunte.de") !== -1) {
+        frameContainerParent.style.marginBottom = '10px';
+      }
+      
+      setTimeout(function () {
+        scrollHandling();
+      }, 20);
+      
+      if (formatWidth == '300') {
+        if (video) {
+          if ("%%SITE%%".indexOf("freundin.de") !== -1) {
+            video.style.display = 'none';
+            video.style.display = 'block';
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
