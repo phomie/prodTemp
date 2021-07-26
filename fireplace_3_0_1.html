@@ -8,6 +8,17 @@
 <script>
     let freezedSkys = [ % STICKYSKYS % ];
 
+
+    var scriptElem = window.parent.document.head.appendChild(document.createElement('script'));
+    scriptElem.innerHTML =
+        `const ResponseFirePLacetemplate= ()=> {
+      const firplaceVar = "FireplaceisSet"
+        return firplaceVar
+        
+      }`;
+    console.log(scriptElem)
+
+
     var contenttyp = window.parent.atf.getContentType();
     var basehost = window.location.hostname.split(".")[1];
     var horst = window.location.hostname;
