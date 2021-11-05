@@ -9,31 +9,41 @@
         } else {
             basehost = window.location.hostname.split(".")[0]
         }
-
-        var horst = window.location.hostname;
         var creativeType = "dynamicSitebar";
-        var obj = window.parent.creativeSettings;
-        var dataToRetrieve = basehost;
-        var contentyp = contenttyp;
+        if (basehost.includes("-")) {
+            basehost2 = basehost.split("-")
+            basehost3 = basehost2.join("")
+            dataToRetrieve = basehost3
+
+        } else {
+            dataToRetrieve = basehost
+        }
+        if (basehosttry == "focus-arztsuche" || basehosttry == "mylife") {
+            var theobjecttofind = "creativeSettings" + dataToRetrieve;
+            var obj = window.parent[theobjecttofind];
+        } else {
+            var obj = window.parent.creativeSettings;
+        }
+
+
+
         var creativetypte = creativeType;
 
         function GetPropertyValue(
             object,
             dataToRetrieve,
-            contentyp,
+            contenttyp,
             creativetypte
         ) {
-            return obj[dataToRetrieve][contentyp][creativetypte];
+            return obj[dataToRetrieve][contenttyp][creativetypte];
         }
         sitebarobj = GetPropertyValue(
             obj,
             dataToRetrieve,
-            contentyp,
+            contenttyp,
             creativetypte
         );
-
-
-
+        console.log('sitebarobj', sitebarobj);
         for (const prop in sitebarobj) {
             singleresult = sitebarobj[prop];
             switch (prop) {
@@ -57,13 +67,10 @@
                     break;
             }
         }
-
         var resizing = function dsaBox() {
-
             theexactheight = window.parent.innerHeight;
             boxright = frameElement.parentElement.firstChild;
             boxright.style.position = "absolut";
-
             if (theexactheight >= 1350) {
                 boxright.style.maxHeight = maxheight + "px";
             } else if (theexactheight >= 1200 && theexactheight <= 1350) {
@@ -73,11 +80,9 @@
             } else if (theexactheight >= 700 && theexactheight <= 900) {
                 boxright.style.maxHeight = maxheight3 + "px";
             } else {}
-
             boxright.style.minHeight = 600 + "px";
             boxright.style.maxWidth = 800 + "px";
             boxright.style.minWidth = 300 + "px";
-
             if (basehost == "gofeminin" || basehost == "instyle" || basehost == "elle" || basehost == "freundin" || basehost == "harpersbazaar" || basehost == "esquire") {
                 current_window = window;
                 var bh = parent.window.innerHeight - 155;
@@ -90,9 +95,7 @@
                 var sitebar_width = bw - left;
                 window.frameElement.height = bh;
                 window.frameElement.width = sitebar_width;
-
                 boxwidth = window.frameElement.width = sitebar_width + "px";
-
                 boxheight = window.frameElement.height = bh + "px";
             } else {
                 var posinBrowser = boxright.getBoundingClientRect();
@@ -105,18 +108,14 @@
                 var therealhight = eh - toptobor;
                 boxheight = boxright.style.height = therealhight + "px";
             }
-
-
             return {
                 boxheight,
                 boxwidth
             };
         };
-
         delay = 5; // delay between calls
         throttled = false; // are we currently throttled?
         parent.document.getElementsByTagName('body')[0].onscroll = function() {
-
             if (!throttled) {
                 let {
                     boxheight,
@@ -128,7 +127,6 @@
                 }, delay);
             }
         }
-
         window.parent.addEventListener("resize", function() {
             if (!throttled) {
                 let {
@@ -141,8 +139,6 @@
                 }, delay);
             }
         });
-
-
         resizing();
     </script>
 </head>
@@ -150,45 +146,33 @@
 <body>
     <div id="thecreativecont"></div>
 </body>
-
 <script>
     celtratag = `[%CELTRATAG%]`
-
     iframeurl = "[%IFRAME_REDIRECT%]";
     jsredirect = `[%JAVASCRIPT_REDIRECT%]`;
-
     obj.regex(jsredirect)
-
-    //JSREDIRECT
+        //JSREDIRECT
     if (obj.regex(jsredirect) == true) {
         thecrativecodes = document.createElement("script");
         thecrativecodes.innerHTML = `document.write("<scr" + "ipt src='` + jsredirect + `'></scr" + "ipt>");`;
-
     } else {
         thecrativecodes = document.createElement("script");
         thecrativecodes.type = "text/javascript";
         thecrativecodes.textContent = jsredirect;
-
     }
-
     if (jsredirect != "") {
         console.log("jsredirectcase")
             // document.getElementsByTagName("html")[0].style.height = 100 + "%";
             //document.getElementsByTagName("body")[0].style.height = 100 + "%";
-
         function theDSA() {
-
             theDiv = document.getElementById("thecreativecont");
             theDiv.style.maxHeight = 100 + "%";
             theDiv.style.height = 100 + "%";
             theDiv.style.width = 100 + "%";
-
             dsa = obj.iframecreator(100 + "%", 100 + "%", "about:blank", "theframe");
             theDiv.appendChild(dsa);
-
             var frameObj = document.getElementById("theframe");
             var frameContent = frameObj.contentWindow.document.body.innerHTML;
-
             hopethe = frameObj.contentWindow.document.getElementsByTagName(
                 "body"
             )[0];
@@ -206,7 +190,6 @@
             theDiv.style.maxHeight = 100 + "%";
             theDiv.style.height = 100 + "%";
             theDiv.style.width = 100 + "%";
-
             dsa = obj.iframecreator(100 + "%", 100 + "%", "about:blank", "theframe");
             theDiv.appendChild(dsa);
             var frameObj = document.getElementById("theframe").contentWindow.document;
