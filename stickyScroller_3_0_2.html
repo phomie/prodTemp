@@ -1,11 +1,10 @@
 <html style="padding-top: 24px;">
 	<head> 
 		<script>
-			var obj = window.parent.creativeSettings;
-			console.log('obj', obj);
+      var obj = window.parent.creativeSettings;
 			var frameElem = frameElement;
 			var frameContainer = frameElem.parentElement;
-                frameContainer.style.maxHeight=100+"vh"; 
+         frameContainer.style.maxHeight=100+"vh"; 
 			var frameContainerParent = frameContainer.parentElement;
 			var frameContainerParentParentParent = frameContainerParent.parentElement.parentElement;
 			var parentWin = parent.window;
@@ -37,7 +36,7 @@
         console.log("DESKTOP")
         frameElem.parentElement.style.width=970;
         frameElem.style.height = 275+'px';
-		  	frameElem.style.width = '[%Desktop_creative_width%]'+'px';
+		  	frameElem.style.width = '[%Image_width%]'+'px';
        
 
       }
@@ -66,14 +65,14 @@
 	<body>
 		<a id="atf-sticky-mobile-ad" target="_blank" style="width: 100%; height: 100%; position: relative; display: -ms-flexbox; display: flex; -ms-flex-pack: center; justify-content: center;">
     
-      [%JAVASCRIPT_REDIRECT_Desktop_or_Mobile%]
+      [%JAVASCRIPT_REDIRECT%]
 		</a>
 		<img id="atf-sticky-mobile-close" src style="position: absolute; height: 30px; width: 30px; top: 3px; cursor: pointer; z-index: 1;" />
 		<script>
 			var ad = document.getElementById('atf-sticky-mobile-ad');
 			var closeBtn = document.getElementById('atf-sticky-mobile-close');
 			
-			ad.style.backgroundColor = '[%BackgroundColor%]' !== '' ? '[%BackgroundColor%]' : 'transparent';
+			
 			
 			if ('[%Click_through_URL%]' !== '') {
 				ad.setAttribute('href', '%%CLICK_URL_UNESC%%[%Click_through_URL%]');
@@ -89,16 +88,16 @@
 				});
 			}
 			
-			if ('[%Image_Desktop_or_Mobile%]' !== '' && '[%ImageRetina%]' !== '') {
-				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image_Desktop_or_Mobile%] 1x, [%ImageRetina%] 2x"/>');
-			} else if ('[%Image_Desktop_or_Mobile%]' === '' && '[%ImageRetina%]' !== '') {
-				ad.insertAdjacentHTML('beforeend', '<img srcset="[%ImageRetina%] 2x"/>');
-			} else if ('[%Image_Desktop_or_Mobile%]' !== '' && '[%ImageRetina%]' === '') {
-				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image_Desktop_or_Mobile%] 1x"/>');
+			if ('[%Image%]' !== '' && '[%Image_High_Resolution%]' !== '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image%] 1x, [%Image_High_Resolution%] 2x"/>');
+			} else if ('[%Image%]' === '' && '[%Image_High_Resolution%]' !== '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image_High_Resolution%] 2x"/>');
+			} else if ('[%Image%]' !== '' && '[%Image_High_Resolution%]' === '') {
+				ad.insertAdjacentHTML('beforeend', '<img srcset="[%Image%] 1x"/>');
 			}
 			
 			closeBtn.style.display = 'none';
-			closeBtn.src = '[%CloseButton%]' !== '' ? '[%CloseButton%]' : 'data:image/jpeg;base64,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';
+			closeBtn.src = '[%Close_Button%]' !== '' ? '[%Close_Button%]' : 'data:image/jpeg;base64,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';
 			
       
       closeBtn.style.right = '0px';
@@ -125,23 +124,24 @@ thecont2.src=`[%Third_party_impression_tracking_URL_2%]`;
 thecont3= thecont.appendChild(document.createElement('img'))
 thecont3.src = `[%Third_party_impression_tracking_URL_3%]`;
 
-jstracking=  `[%Thirdparty_impression_tracking_SCRIPT%]`      
-console.log('jstracking', jstracking);
+jstracking=  `[%Third_party_impression_tracking_SCRIPT%]`      
 
-   if (obj.regex(jstracking) == true) {
-       thetrackingcodes = document.createElement("script");
-       thetrackingcodes.src = jstracking;
-       thetrackingcodes.style.display="none"
-       thebodydiv=document.querySelector("#atf-sticky-mobile-ad")
-       thebodydiv.appendChild(thetrackingcodes)
-   } else {
-       thetrackingcodes = document.createElement("script");
-       thetrackingcodes.type = "text/javascript";
-       thetrackingcodes.textContent = jstracking;
-       thebodydiv=document.querySelector("#atf-sticky-mobile-ad")
-       thebodydiv.appendChild(thetrackingcodes)
-   }
-
+     if(jstracking){
+      obj.regex(jstracking)
+      if (obj.regex(jstracking) == true) {
+          thetrackingcodes = document.createElement("script");
+          thetrackingcodes.src = jstracking;
+         
+          thebodydiv=document.querySelector("#atf-sticky-mobile-ad")
+          thebodydiv.appendChild(thetrackingcodes)
+      } else {
+          thetrackingcodes = document.createElement("script");
+          thetrackingcodes.type = "text/javascript";
+          thetrackingcodes.textContent = jstracking;
+          thebodydiv=document.querySelector("#atf-sticky-mobile-ad")
+          thebodydiv.appendChild(thetrackingcodes)
+      }
+     }
 
 
 		</script>

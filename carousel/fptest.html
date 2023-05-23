@@ -6,8 +6,7 @@
     <div id="thecreativecont"></div>
 </body>
 <script>
- 
-    let freezedSkys = "[%SKYSCRAPER_IS_STICKY%]";
+    let freezedSkys = [ % STICKYSKYS % ];
 
 
     var scriptElem = window.parent.document.head.appendChild(document.createElement('script'));
@@ -18,96 +17,28 @@
         
       }`;
     console.log(scriptElem)
-var imgelem1 = window.top.document.querySelector("div[id^='google_ads_iframe_'] iframe").parentElement
-theing = document.createElement('img')
-theing.src = `[%Third_party_impression_tracking_URL_1%]`;
-theing.style.display="none"
-imgelem1.appendChild(theing)
-  
-theing1 = document.createElement('img')
-theing1.src = `[%Third_party_impression_tracking_URL_2%]`;
-theing1.style.display="none"
-imgelem1.appendChild(theing1)  
-
-theing2 = document.createElement('img')
-theing2.src = `[%Third_party_impression_tracking_URL_3%]`;
-theing2.style.display="none"
-imgelem1.appendChild(theing2)  
-    
-  
-  
-  
-    
-
 
 
     var contenttyp = window.parent.atf.getContentType();
-    var basehosttry = window.location.hostname.split(".")[0];
-    if (basehosttry == "www" ||basehosttry == "dev" ) {
-        basehost = window.location.hostname.split(".")[1]
-        console.log('basehost0', basehost);
-
-    } else {
-        basehost = window.location.hostname.split(".")[0]
-        console.log('basehost1', basehost);
-    }
+    var basehost = window.location.hostname.split(".")[1];
+    var horst = window.location.hostname;
     var creativeType = "fireplace";
-    if (basehost.includes("-")) {
-        basehost2 = basehost.split("-")
-        basehost3 = basehost2.join("")
-        dataToRetrieve = basehost3
-
-    } else {
-        dataToRetrieve = basehost
-    }
-    if (basehosttry == "focus-arztsuche" || basehosttry == "mylife") {
-        var theobjecttofind = "creativeSettings" + dataToRetrieve;
-        var obj = window.parent[theobjecttofind];
-    } else {
-        var obj = window.parent.creativeSettings;
-    }
-
-
-
-
-		var obj = window.parent.creativeSettings;
+    var obj = window.parent.creativeSettings;
+    var dataToRetrieve = basehost;
+    var contentyp = contenttyp;
     var creativetypte = creativeType;
 
-  
-  
 
     function GetPropertyValue(object, dataToRetrieve, contentyp, creativetypte) {
-        return obj[dataToRetrieve][contenttyp][creativetypte]
+        return obj[dataToRetrieve][contentyp][creativetypte]
     }
-    fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contenttyp, creativetypte)
+    fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte)
     billboardwidth = fireplaceobj.billboardwidth;
     billboardwidth1 = billboardwidth;
     leadboardmarginleft = fireplaceobj.leadboardmarginleft;
 
     leadboardcalc = fireplaceobj.leadboardcalc
 
-  
-   jstracking=`[%Third_party_impression_tracking_SCRIPT%]`
-     if(jstracking){
-  
-      if (obj.regex(jstracking) == true) {
-          thetrackingcodes = document.createElement("script");
-          thetrackingcodes.src = jstracking;
-         
-          thebodydiv=document.querySelector("#thecreativecont")
-          thebodydiv.appendChild(thetrackingcodes)
-      } else {
-          thetrackingcodes = document.createElement("script");
-          thetrackingcodes.type = "text/javascript";
-          thetrackingcodes.textContent = jstracking;
-          thebodydiv=document.querySelector("#thecreativecont")
-          thebodydiv.appendChild(thetrackingcodes)
-      }
-     }
-  
-  
-  
-  
 
     if (freezedSkys) {
         for (const prop in (fireplaceobj.whichcase[0].true[0])) {
@@ -178,7 +109,19 @@ imgelem1.appendChild(theing2)
         }
 
     }
+    /*
+      if (basehost == "daskochrezept") {
+        console.log("where are here ")
+        topcontainerforhome = window.top.document.querySelector('.site__ads-top-content')
+        topcontainerforhome.style.marginLeft = fireplaceobj.topcontSizeMl+"px";
+        console.log('fireplaceobj.topcontSizeMl', fireplaceobj.topcontSizeMl);
+        console.log('topcontainerforhome', topcontainerforhome);
+    }
+*/
 
+
+
+    //frameElement.parentElement.firstChild
     var leadboard = frameElement.parentElement.firstChild;
     leadboard.style.width = "calc(" + leadboardcalc + "px" + 160 + "px" + 160 + "px)";
     leadboard.style.height = 600 + "px";
@@ -203,22 +146,23 @@ imgelem1.appendChild(theing2)
 
 
     //Iframes
-    ifrmBillboard = "[%IFRAME_REDIRECT_BILLBOARD%]";
-    ifrmSkyLeft = "[%IFRAME_REDIRECT_SKY_LEFT%]";
-    ifrmSkyRight = "[%IFRAME_REDIRECT_SKY_RIGHT%]";
+    ifrmBillboard = "[%IFRAME_REDIRECT_LEADERBOARD%]";
+    ifrmSkyLeft = "[%IFRAME_REDIRECT_SKYLEFT%]";
+    ifrmSkyRight = "[%IFRAME_REDIRECT_SKYRIGHT%]";
 
 
 
     // JS REDIRECTS
-    jsSkyLeftRedirect = `[%JS_REDIRECT_SKY_LEFT%]`;
-    jsSkyRightRedirect = `[%JS_REDIRECT_SKY_RIGHT%]`;
-    jsBillboardRedirect = `[%JS_REDIRECT_BILLBOARD%]`;
+    jsSkyLeftRedirect = `[%JS_REDIRECT_SKYLEFT%]`;
+    jsSkyRightRedirect = `[%JS_REDIRECT_SKYRIGHT%]`;
+    jsBillboardRedirect = `[%JS_REDIRECT_LEADERBOARD%]`;
 
-    jpeg_Billboard = "[%IMAGE_BILLBOARD%]"
 
-    jpeg_RightSky = "[%IMAGE_RIGHT_SKY%]"
+    jpeg_Billboard = "[%IMAGE_SUPERBANNER%]"
 
-    jpeg_LeftSky = "[%IMAGE_LEFT_SKY%]"
+    jpeg_RightSky = "[%IMAGE_RIGHTSKY%]"
+
+    jpeg_LeftSky = "[%IMAGE_LeftSKY%]"
 
 
 
@@ -232,14 +176,14 @@ imgelem1.appendChild(theing2)
 
 
         billboardtheinnerDocwrite = document.createElement("script");
-        billboardtheinnerDocwrite.src = jsBillboardRedirect;
+        billboardtheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsBillboardRedirect + `'   type='text/javascript'></scr" + "ipt>");`
 
         skyrightheinnerDocwrite = document.createElement("script");
-        skyrightheinnerDocwrite.src=jsSkyRightRedirect
+        skyrightheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsSkyRightRedirect + `'   type='text/javascript'></scr" + "ipt>");`
 
 
         skylefttheinnerDocwrite = document.createElement("script");
-        skylefttheinnerDocwrite.src=jsSkyLeftRedirect
+        skylefttheinnerDocwrite.innerHTML = `document.write("<scr" + "ipt src='` + jsSkyLeftRedirect + `'   type='text/javascript'></scr" + "ipt>");`
 
 
     } else {
@@ -261,10 +205,8 @@ imgelem1.appendChild(theing2)
     if (jsSkyLeftRedirect && jsSkyRightRedirect && jsBillboardRedirect) {
 
         Jsisintuse = true;
-         console.log('Jsisintusetrue');
     } else {
         Jsisintuse = false;
-         console.log('Jsisintusefalse');
     }
 
 
@@ -447,7 +389,7 @@ imgelem1.appendChild(theing2)
             frameContentSkyright.contentWindow.document.open();
             frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
             frameContentSkyright.contentWindow.document.close();
-        } else if (obj.regex(jsSkyLeftRedirect) == false && obj.regex(jsSkyRightRedirect) == false && obj.regex(jsBillboardRedirect) == false && ((jpeg_Billboard == "") && (jpeg_RightSky == "") && (jpeg_LeftSky == ""))) {
+        } else if (obj.regex(jsSkyLeftRedirect) == false && obj.regex(jsSkyRightRedirect) != false && obj.regex(jsBillboardRedirect) == false && ((jpeg_Billboard == "") && (jpeg_RightSky == "") && (jpeg_LeftSky == ""))) {
             console.log("ffalse")
             hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
             hopethe1.appendChild(thebillboardCodes);
@@ -461,16 +403,16 @@ imgelem1.appendChild(theing2)
         } else if ((jpeg_Billboard != "") && (jpeg_RightSky != "") && (jpeg_LeftSky != "")) {
             console.log("imagecase")
             frameContentBillboard.contentWindow.document.open();
-            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Click_through_URL%] " target="_blank"><img src="` + "[%IMAGE_BILLBOARD%]" + ` width="` + billboardwidth + `" height="250"></a></body></html></head>`);
+            frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank"><img src="` + "[%IMAGE_SUPERBANNER%]" + ` width="` + billboardwidth + `" height="250"></a><span style="display:none"> [%TrackingPixel%]</span></body></html></head>`);
             frameContentBillboard.contentWindow.document.close();
 
 
             frameContentSkyright.contentWindow.document.open();
-            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Click_through_URL%] " target="_blank"><img src="` + "[%IMAGE_RIGHT_SKY%]" + ` width="160" height="600"></a></body></html></head>`);
+            frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank"><img src="` + "[%IMAGE_RIGHTSKY%]" + ` width="160" height="600"></a></body></html></head>`);
             frameContentSkyright.contentWindow.document.close();
 
             frameContentSkyleft.contentWindow.document.open();
-            frameContentSkyleft.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Click_through_URL%] " target="_blank"><img src="` + "[%IMAGE_LEFT_SKY%]" + ` width="160" height="600"></a></body></html></head>`);
+            frameContentSkyleft.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'><a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank"><img src="` + "[%IMAGE_LeftSKY%]" + ` width="160" height="600"></a></body></html></head>`);
             frameContentSkyleft.contentWindow.document.close();
 
 

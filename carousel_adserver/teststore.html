@@ -4,8 +4,10 @@
     <style>
         .carousel-wrapper {
             overflow: hidden;
-            width: 100%;
+            height: 600px;
+            width: 300px;
             z-index: 500;
+      
         }
         
         .carousel-wrapper * {
@@ -46,7 +48,22 @@
             transform: translateX(100%);
         }
         
-        .carousel__button--prev,
+      .carousel__button--prev{
+         position: absolute;
+            top: 270px;
+            width: 3rem;
+            height: 3rem;
+            background-color: #FFF;
+            transform: translateY(0%);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            border: 1px solid black;
+            -webkit-animation: pulsate 0.5s;
+            -webkit-animation-iteration-count: 3;
+            opacity: 0.8;
+            left: 251px;
+      }
         .carousel__button--next {
             position: absolute;
             top: 270px;
@@ -108,33 +125,64 @@
         span {
             display: none;
         }
+      .calltocation{
+        font-family:arial;
+
+        font-size: large;
+        width:300px;
+        
+        word-break: break-all;   
+      }
+      .wordbox{
+        background:lightgrey ;
+        padding:3px;
+        height:188px;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
     </style>
 </head>
 
 <body>
     <div class="carousel-wrapper">
         <div class="carousel">
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
-                <img class="carousel__photo initial" src="[%IMAGE_1_300x400%]"> <span>[%3rdParty1%]</span>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank">
+                <img class="carousel__photo initial" src="[%img_1%]"> <span>[%3rdParty1%]</span>
             </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_2%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_2_300x400%]"><span> [%3rdParty2%]</span>
+           
             </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_3_300x400%]"> <span>[%3rdParty3%]</span>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink2%] " target="_blank">
+                <img class="carousel__photo" src="[%img_3%]">
+                <span>[%3rdParty2%]</span>
             </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_1_300x400%]">
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink3%] " target="_blank">
+                <img class="carousel__photo" src="[%img_3%]">
+              
             </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_2%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_2_300x400%]">
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank">
+                <img class="carousel__photo" src="[%img_1%]">
             </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_3_300x400%]">
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink1%] " target="_blank">
+                <img class="carousel__photo" src="[%img_2%]">
+                
+            </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink2%] " target="_blank">
+                <img class="carousel__photo" src="[%img_3%]">
+               
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink3%] " target="_blank">
+                <img class="carousel__photo" src="[%img_4%]">
+                
             </a>
             <div class="carousel__button--next"></div>
             <div class="carousel__button--prev"></div>
         </div>
+        <a href="%%CLICK_URL_UNESC%%[%Hyperlink3%] " target="_blank">
+        <div class="wordbox" >
+            <textfield  class="calltocation"><center>[%textfield%]</center></textfield>
+        </div>  
+        </a>
     </div>
     <script>
         !(function(d) {
@@ -145,8 +193,13 @@
             theclick.setAttribute("target", "_blank")
             ad.appendChild(theclick)
             var itemClassName = "carousel__photo";
+            var itemClassName1 = "wordbox";
             items = d.getElementsByClassName(itemClassName),
                 totalItems = items.length,
+                slide = 0,
+                moving = true;
+             items1 = d.getElementsByClassName(itemClassName1),
+                totalItems = items1.length,
                 slide = 0,
                 moving = true;
 
@@ -230,6 +283,12 @@
             }
             initCarousel();
         }(document));
+
+        function myFuncinter() {
+            document.getElementsByClassName('carousel__button--next')[0].click();
+}
+
+//setInterval(myFuncinter,3000)
     </script>
 </body>
 

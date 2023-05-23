@@ -114,41 +114,26 @@
 <body>
     <div class="carousel-wrapper">
         <div class="carousel">
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
-                <img class="carousel__photo initial" src="[%IMAGE_1_300x400%]"> <span>[%3rdParty1%]</span>
-            </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_2%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_2_300x400%]"><span> [%3rdParty2%]</span>
-            </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_3_300x400%]"> <span>[%3rdParty3%]</span>
-            </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_1_300x400%]">
-            </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_2%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_2_300x400%]">
-            </a>
-            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_3_300x400%]">
-            </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank"> <img class="carousel__photo initial" src="[%img_1%]"> <span>[%3rdParty1%]</span> </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink2%] " target="_blank"> <img class="carousel__photo" src="[%img_2%]"><span> [%3rdParty2%]</span> </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink3%] " target="_blank"> <img class="carousel__photo" src="[%img_3%]"> <span>[%3rdParty3%]</span> </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink%] " target="_blank"> <img class="carousel__photo" src="[%img1_1%]"> <span>[%3rdParty2%]</span> </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink2%] " target="_blank"> <img class="carousel__photo" src="[%img2_1%]"><span> [%3rdParty2%]</span> </a>
+            <a href="%%CLICK_URL_UNESC%%[%Hyperlink3%] " target="_blank"> <img class="carousel__photo" src="[%img3_1%]"> <span>[%3rdParty3%]</span> </a>
             <div class="carousel__button--next"></div>
             <div class="carousel__button--prev"></div>
         </div>
     </div>
     <script>
         !(function(d) {
-            ad = document.querySelector(".carousel__photo.initial")
+            ad = document.querySelector(".carousel__photo.initial");
             console.log('ad', ad);
-            theclick = document.createElement("a")
-            theclick.setAttribute('href', '%%CLICK_URL_UNESC%%[%Hyperlink%]')
-            theclick.setAttribute("target", "_blank")
-            ad.appendChild(theclick)
+            theclick = document.createElement("a");
+            theclick.setAttribute('href', '%%CLICK_URL_UNESC%%[%Hyperlink%]');
+            theclick.setAttribute("target", "_blank");
+            ad.appendChild(theclick);
             var itemClassName = "carousel__photo";
-            items = d.getElementsByClassName(itemClassName),
-                totalItems = items.length,
-                slide = 0,
-                moving = true;
+            items = d.getElementsByClassName(itemClassName), totalItems = items.length, slide = 0, moving = true;
 
             function setInitialClasses() {
                 items[totalItems - 1].classList.add("prev");
