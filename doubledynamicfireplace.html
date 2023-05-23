@@ -1,0 +1,490 @@
+<html>
+
+<head> </head>
+
+<body>
+    <div id="thecreativecont"></div>
+</body>
+<script>
+    (function () {
+        let freezedSkys = true;
+        var sE = window.parent.document.head.appendChild(document.createElement('script'));
+        sE.innerHTML =
+            `const ResponseFirePLacetemplate= ()=> {
+      const firplaceVar = "FireplaceisSet";
+        return firplaceVar;
+      }`;
+        console.log(sE);
+        thsitewrapper = window.top.document.querySelector(".site__wrapper");
+        var imgelem1 = window.top.document.querySelector("div[id^='google_ads_iframe_'] iframe").parentElement;
+        tg = document.createElement('img');
+        tg.src = `[%Third_party_impression_tracking_URL_1%]`;
+        tg.style.display = "none";
+        imgelem1.appendChild(tg);
+        tg1 = document.createElement('img');
+        tg1.src = `[%Third_party_impression_tracking_URL_2%]`;
+        tg1.style.display = "none";
+        imgelem1.appendChild(tg1);
+        tg2 = document.createElement('img');
+        tg2.src = `[%Third_party_impression_tracking_URL_3%]`;
+        tg2.style.display = "none";
+        imgelem1.appendChild(tg2);
+
+
+        var contenttyp = window.parent.atf.getContentType();
+        var basehost = window.location.hostname.split(".")[1];
+        var horst = window.location.hostname;
+        var creativeType = "doublefireplace";
+        var obj = window.parent.creativeSettings;
+        var dataToRetrieve = basehost;
+        var contentyp = contenttyp;
+        var creativetypte = creativeType;
+        function GetPropertyValue(object, dataToRetrieve, contentyp, creativetypte) {
+            return obj[dataToRetrieve][contentyp][creativetypte]
+        };
+        fireplaceobj = GetPropertyValue(obj, dataToRetrieve, contentyp, creativetypte);
+        billboardwidth = fireplaceobj.billboardwidth;
+        billboardwidth1 = billboardwidth;
+        leadboardmarginleft = fireplaceobj.leadboardmarginleft;
+        leadboardcalc = fireplaceobj.leadboardcalc;
+      
+      
+              jstracking=  `[%Third_party_impression_tracking_SCRIPT%]`      
+if(jstracking){
+obj.regex(jstracking)
+   if (obj.regex(jstracking) == true) {
+       thetrackingcodes = document.createElement("script");
+       thetrackingcodes.src=jstracking;
+      
+       thebodydiv=document.querySelector("#thecreativecont")
+       thebodydiv.appendChild(thetrackingcodes)
+   } else {
+       thetrackingcodes = document.createElement("script");
+       thetrackingcodes.type = "text/javascript";
+       thetrackingcodes.textContent = jstracking;
+       thebodydiv=document.querySelector("#thecreativecont")
+       thebodydiv.appendChild(thetrackingcodes)
+   }
+
+}
+
+      
+      
+      
+      
+      
+        if (freezedSkys) {
+            for (const prop in (fireplaceobj.whichcase[0].true[0])) {
+                singleresult = (fireplaceobj.whichcase[0].true[0])[prop];
+                theresultofloop = prop + "=" + (fireplaceobj.whichcase[0].true[0])[prop];
+                switch (prop) {
+                    case "marginleftBillboard":
+                        marginleftBillboard = singleresult;
+                        break;
+                    case "marginleftLeftSky":
+                        marginleftLeftSky = singleresult;
+                        break;
+                    case "marginleftRightSky":
+                        marginleftRightSky = singleresult;
+                        break;
+                    case "marginlefttehstickxs":
+                        marginlefttehstickxs = singleresult;
+                        break;
+                    case "left":
+                        left = singleresult;
+                        break;
+                    case "bottom":
+                        bottom = singleresult;
+                        break;
+                    case "condition":
+                        condition = singleresult;
+                        break;
+                    default:
+                        console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                        break;
+                }
+            }
+        } else {
+            for (const prop in fireplaceobj.whichcase[0].false[0]) {
+                singleresult = (fireplaceobj.whichcase[0].false[0])[prop];
+                theresultofloop = prop + "=" + (fireplaceobj.whichcase[0].false[0])[prop];
+                switch (prop) {
+                    case "marginleftBillboard":
+                        marginleftBillboard = singleresult;
+                        break;
+                    case "marginleftLeftSky":
+                        marginleftLeftSky = singleresult;
+                        break;
+                    case "marginleftRightSky":
+                        marginleftRightSky = singleresult;
+                        break;
+                    case "marginlefttehstickxs":
+                        marginlefttehstickxs = singleresult;
+                        break;
+                    case "left":
+                        left = singleresult;
+                        break;
+                    case "bottom":
+                        bottom = singleresult;
+                        break;
+                    case "condition":
+                        condition = singleresult;
+                        break;
+                    default:
+                        console.log("it is usally not workinglsafnlksajflasjflkaslkfd");
+                        break;
+                }
+            }
+        }
+        var leadboard = frameElement.parentElement.firstChild;
+        leadboard.style.width = "calc(" + leadboardcalc + "px" + 160 + "px" + 160 + "px)";
+        leadboard.style.height = 600 + "px";
+        leadboard.style.marginLeft = leadboardmarginleft + "px";
+        leadboard.style.maxWidth = 'none';
+        leadboard.style.maxHeight = 'none';
+        leadboard.style.marginBottom = -350 + "px";
+        leadboard.style.textAlign = "none !important";
+        leadboard.style.width = 1710 + "px";
+        leadboard.style.textAlign = "none !important";
+        var parentIframe = frameElement.parentElement.parentElement.firstChild;
+        var mainarea = document.createElement("div");
+        mainarea.setAttribute(
+            "style",
+            "width:1520px;height:600px;z-index:850;position:absolute;pointer-events:none;margin:0px;padding:0px;left:" + left + "px;bottom:" + bottom + "px;"
+        );
+
+        ifrmBillboard = "[%IFRAME_REDIRECT_LEADERBOARD%]";
+        ifrmSkyLeft = "[%IFRAME_REDIRECT_SKY_LEFT%]";
+        ifrmSkyRight = "[%IFRAME_REDIRECT_SKY_RIGHT%]";
+
+        jsSkyLeftRedirect = `[%JS_REDIRECT_SKY_LEFT%]`;
+        jsSkyRightRedirect = `[%JS_REDIRECT_SKY_RIGHT%]`;
+        jsBillboardRedirect = `[%JS_REDIRECT_LEADERBOARD%]`;
+
+        obj.regex(jsSkyLeftRedirect);
+        obj.regex(jsSkyRightRedirect);
+        obj.regex(jsBillboardRedirect);
+        if ((obj.regex(jsSkyLeftRedirect) == true && obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+            billboardtheinnerDocwrite = document.createElement("script");
+            billboardtheinnerDocwrite.src =jsBillboardRedirect;
+            skyrightheinnerDocwrite = document.createElement("script");
+			skyrightheinnerDocwrite.src=jsSkyRightRedirect;
+			
+            skylefttheinnerDocwrite = document.createElement("script");
+            skylefttheinnerDocwrite.src = jsSkyLeftRedirect;
+        } else {
+            thebillboardCodes = document.createElement("script");
+            thebillboardCodes.type = "text/javascript";
+            thebillboardCodes.textContent = jsBillboardRedirect;
+            theSkyRightCodes = document.createElement("script");
+            theSkyRightCodes.type = "text/javascript";
+            theSkyRightCodes.textContent = jsSkyRightRedirect;
+            theSkyLeftCodes = document.createElement("script");
+            theSkyLeftCodes.type = "text/javascript";
+            theSkyLeftCodes.textContent = jsSkyLeftRedirect;
+        }
+        if (jsSkyLeftRedirect && jsSkyRightRedirect && jsBillboardRedirect) {
+            Jsisintuse = true;
+        } else {
+            Jsisintuse = false;
+        }
+        if (Jsisintuse == true) {
+            billbod = obj.iframecreator(
+                billboardwidth1, 250,
+                "about:blank",
+                "billbod"
+            );
+            skyleft = obj.iframecreator(
+                160,
+                600,
+                "about:blank",
+                "left"
+            );
+            skyright = obj.iframecreator(
+                160,
+                600,
+                "about:blank",
+                "right"
+            );
+        } else if (Jsisintuse == false) {
+            billbod = obj.iframecreator(
+                billboardwidth, 250,
+                ifrmBillboard,
+                "billbod"
+            );
+            skyleft = obj.iframecreator(
+                160,
+                600,
+                ifrmSkyLeft,
+                "left"
+            );
+            skyright = obj.iframecreator(
+                160,
+                600,
+                ifrmSkyRight,
+                "right"
+            );
+        }
+        frameContentBillboard = billbod;
+        frameContentSkyleft = skyleft;
+        frameContentSkyright = skyright;
+        if (freezedSkys) {
+            
+            var theDiv = document.getElementById("thecreativecont");
+            var stickySkys = document.createElement("div");
+            stickySkys.id = "tehstickxs";
+            stickySkys.style.height = 600 + "px";
+            stickySkys.style.width = 1520 + "px";
+            theDiv.appendChild(mainarea);
+            theDiv.insertBefore(mainarea, leadboard.firstChild);
+            mainarea.append(billbod);
+            parentIframe.append(stickySkys);
+            stickySkys.append(frameContentSkyleft, frameContentSkyright);
+            if ((obj.regex(jsSkyLeftRedirect) == true && obj.regex(jsSkyRightRedirect) == true && obj.regex(jsBillboardRedirect) == true)) {
+                console.log("truecase");
+                thetransformedbillbodstring = billboardtheinnerDocwrite.outerHTML;
+                frameContentBillboard.contentWindow.document.open();
+                frameContentBillboard.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedbillbodstring + `</body></html></head>`);
+                frameContentBillboard.contentWindow.document.close();
+                thetransformedskyleftstring = skylefttheinnerDocwrite.outerHTML;
+                frameContentSkyleft.contentWindow.document.open();
+                frameContentSkyleft.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyleftstring + `</body></html></head>`);
+                frameContentSkyleft.contentWindow.document.close();
+                thetransformedskyrightstring = skyrightheinnerDocwrite.outerHTML;
+                frameContentSkyright.contentWindow.document.open();
+                frameContentSkyright.contentWindow.document.write(`<html><head><body style='margin:0px;padding:0px'>` + thetransformedskyrightstring + `</body></html></head>`);
+                frameContentSkyright.contentWindow.document.close();
+            } else if (obj.regex(jsSkyLeftRedirect) == false && obj.regex(jsSkyRightRedirect) == false && obj.regex(jsBillboardRedirect) == false) {
+                hopethe1 = frameContentBillboard.contentWindow.document.getElementsByTagName("body")[0];
+                hopethe1.appendChild(thebillboardCodes);
+                hopethe2 = frameContentSkyleft.contentWindow.document.getElementsByTagName("body")[0];
+                hopethe2.appendChild(theSkyLeftCodes);
+                function resizing1() {
+                    boxleft = frameContentSkyleft;
+                    boxleft.style.left = "0px";
+                 
+                    if (basehost == "haus") {
+                        postodock3 = window.parent.document.querySelector(".site__main-content")
+                    }else  {
+                        if (contentyp == "homepage" || contentyp == "channel") {
+                            postodock3 = window.parent.document.querySelector(".site__main");
+                        } else if (contentyp == "article") {
+                            postodock3 = window.parent.document.querySelector(".site__content-top");
+                        }
+                    }
+                    postodock2 = postodock3.getBoundingClientRect();
+                    pagelemtotop1 = postodock2.top;
+                    newbreiteforleftsky = postodock2.left;
+                    boxleft.style.width = newbreiteforleftsky - 9 + "px";
+                    boxwidth1 = boxleft;
+                   
+                    function checkpos1() {
+                        winddheight1 = window.parent.innerHeight; 
+
+                        if(basehost=="haus"){
+                            thepositionofskys3_12=window.parent.document.querySelector("#adtech-leaderboard-slot1").getBoundingClientRect();
+
+                        }else{
+
+                            thepositionofskys3_12=window.parent.document.querySelector(".site__ads-top").getBoundingClientRect();
+                        }
+                       
+                        thepositionofskys3_22=thepositionofskys3_12.top;
+                        thecsutheight1=winddheight1 - thepositionofskys3_22;
+                        eh2_12 = thecsutheight1;
+                        if (pagelemtotop1 >= fireplaceobj.inbetstart && pagelemtotop1 <= fireplaceobj.inbetend) {
+                         
+                           
+                            boxheight1 = boxleft.style.height = eh2_12 + "px";
+                        } else {
+                            var eh3 = window.parent.innerHeight;
+                            boxheight1 = boxleft.style.height = eh3 + "px";
+                        }
+                    }
+                    checkpos1();
+                    return {
+                        boxheight1,
+                        boxwidth1
+                    };
+                };
+                resizing1();
+
+                hopethe3 = frameContentSkyright.contentWindow.document.getElementsByTagName("body")[0];
+                hopethe3.appendChild(theSkyRightCodes);
+
+                function resizing() {
+                    boxright = frameContentSkyright;
+               
+
+                    if (basehost == "haus") {
+                        postodock = window.parent.document.querySelector(".site__main-content") || window.parent.document.querySelector(".site__main");
+                    }
+
+                    else  {
+                        if (contentyp == "homepage" || contentyp == "channel") {
+                            postodock = window.parent.document.querySelector(".site__main");
+
+
+                        } else if (contentyp == "article") {
+                            postodock = window.parent.document.querySelector(".site__content-top");
+                        }
+                    } 
+                    
+                    postodock1 = postodock.getBoundingClientRect();
+                    pagelemtotop = postodock1.top ;
+                    newbreiteforrightsky = postodock1.right;
+                    windwidth = window.parent.innerWidth;
+                    newbreiteforrightsky1 = windwidth - newbreiteforrightsky;
+                    boxright.style.width = newbreiteforrightsky1 + "px";
+
+                    boxwidth = boxright;
+                
+                    function checkpos() {
+                      
+                      winddheight = window.parent.innerHeight;   
+                      if(basehost=="haus"){
+                      thepositionofskys3_1=window.parent.document.querySelector("#adtech-leaderboard-slot1").getBoundingClientRect();}
+                      else{
+                        thepositionofskys3_1=window.parent.document.querySelector(".site__ads-top").getBoundingClientRect()
+
+                      }
+
+                      thepositionofskys3_2=thepositionofskys3_1.top;
+                      thecsutheight=winddheight - thepositionofskys3_2;
+                      eh4 = thecsutheight;
+                        if (pagelemtotop >=fireplaceobj.inbetstart  && pagelemtotop <= fireplaceobj.inbetend) {
+
+                            boxheight = boxright.style.height = eh4 + "px";
+
+                        }  else {
+                          
+                            var eh5 = window.parent.innerHeight;
+                            boxheight = boxright.style.height = eh5 + "px";
+
+                        }
+                    } checkpos();
+                    return {
+                        boxheight,
+                        boxwidth
+                    };
+                };
+                resizing();
+                delay = 15;
+                throttled = false;
+                window.parent.addEventListener("scroll", function () {
+                    if (!throttled) {
+                        throttled = true;
+                        let {
+                            boxheight,
+                            boxwidth
+                        } = new resizing();
+                        let {
+                            boxheight1,
+                            boxwidth1
+                        } = new resizing1();
+                        setTimeout(function () {
+                            throttled = false;
+                        }, delay);
+                    }
+                });
+                window.parent.addEventListener("resize", function () {
+                    if (!throttled) {
+                        throttled = true;
+                        let {
+                            boxheight,
+                            boxwidth
+                        } = new resizing();
+                        let {
+                            boxheight1,
+                            boxwidth1
+                        } = new resizing1();
+                        setTimeout(function () {
+                            throttled = false;
+                        }, delay);
+                    }
+                });
+            };
+            let top2 = fireplaceobj.thepositionofskys2;
+            var style1 = document.createElement("style");
+            stickySkys.style.position = "absolute";
+            style1.innerHTML =
+                "* {" +
+                "margin: 0;" +
+                "padding: 0;" +
+                "}" +
+                "#tehstickxs{" +
+                "top:0px;" +
+                "margin:0;" +
+                "pointer-events:none;" +
+                "}" +
+                "#left {" +
+                "position: absolute;" +
+                "top:" + top2 + "px;" +
+                "}" +
+                "#right {" +
+                "position: absolute;" +
+                "margin-left:" + marginleftRightSky + "px;" +
+                "top:" + top2 + "px;" +
+                "}";
+            stickySkys.append(style1);
+            style3 = document.createElement("style");
+            style3.innerHTML =
+                "#billbod {" +
+                "position: absolute;" +
+                "margin-left:" + marginleftBillboard + "px;" +
+                "}";
+            billbod.append(style3);
+ 
+            thewind = window.parent.document.getElementsByTagName('body')[0];
+            thewind.onscroll = () => {
+                top1 = fireplaceobj.thepositionofskys;
+                var rect = leadboard.getBoundingClientRect();
+                y = rect.top;
+                let top3 = thepositionofskys3_2;
+                if (y >= 104) {
+                    console.log("")
+                    style1.innerHTML =
+                        "#left {" +
+                        "position: fixed;" +
+                        "top:" + top3 + "px" +
+                        "}" +
+                        "#right {" +
+                        "position: fixed;" +
+                        "margin-left:" + marginleftRightSky + "px;" +
+                        "top:" + top3 + "px;" +
+                        "}";
+                    stickySkys.append(style1);
+                } else {
+                    style1.innerHTML =
+                        "* {" +
+                        "margin: 0;" +
+                        "padding: 0;" +
+                        "}" +
+                        "#tehstickxs{" +
+                        "top:0px;" +
+                        "pointer-events:none;" +
+                        "}" +
+                        "#billbod {" +
+                        "margin:0;" +
+                        "position: absolute;" +
+                        "margin-left: 160px;" +
+                        "}" +
+                        "#left {" +
+                        "position: fixed;" +
+                        "top:" + top1 + "px" +
+                        "}" +
+                        "#right {" +
+                        "position: fixed;" +
+                        "margin-left:" + marginleftRightSky + "px;" +
+                        "top:" + top1 + "px;" +
+                        "}";
+                    stickySkys.append(style1);
+                }
+            }
+        }
+      window.parent.scrollTo(window.scrollX, window.scrollY - 1);
+     window.parent.scrollTo(window.scrollX, window.scrollY + 1);
+    })();
+</script>
+
+</html>

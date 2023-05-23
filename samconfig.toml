@@ -1,0 +1,31 @@
+version = 0.1
+
+[production.deploy.parameters]
+stack_name = "atf-gam-sync-prod"
+s3_bucket = "atf-gam-sync-prod-serverless-deployment"
+s3_prefix = "prod"
+region = "eu-central-1"
+no_confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = false
+image_repositories = []
+
+[staging.deploy.parameters]
+stack_name = "atf-gam-sync-stage"
+s3_bucket = "atf-gam-sync-stage-serverless-deployment"
+s3_prefix = "stage"
+region = "eu-central-1"
+no_confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = false
+image_repositories = []
+
+[testing.deploy.parameters]
+stack_name = "atf-gam-sync-test"
+s3_bucket = "atf-gam-sync-test-serverless-deployment"
+s3_prefix = "test"
+region = "eu-central-1"
+no_confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = false
+image_repositories = []

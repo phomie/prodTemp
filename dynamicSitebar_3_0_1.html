@@ -4,33 +4,31 @@
     <script>
         var contenttyp = window.parent.atf.getContentType();
         var basehosttry = window.location.hostname.split(".")[0];
+        console.log('basehosttry', basehosttry);
         if (basehosttry == "www") {
             basehost = window.location.hostname.split(".")[1]
         } else {
             basehost = window.location.hostname.split(".")[0]
+            console.log('basehost', basehost);
         }
         var creativeType = "dynamicSitebar";
         if (basehost.includes("-")) {
             basehost2 = basehost.split("-")
             basehost3 = basehost2.join("")
             dataToRetrieve = basehost3
+            console.log('dataToRetrieve', dataToRetrieve);
 
         } else {
             dataToRetrieve = basehost
-        }
-        if (basehosttry == "focus-arztsuche" || basehosttry == "mylife") {
-            var theobjecttofind = "creativeSettings" + dataToRetrieve;
-            var obj = window.parent[theobjecttofind];
-        } else {
-            var obj = window.parent.creativeSettings;
+            console.log('dataToRetrieve', dataToRetrieve);
+
         }
 
-
+        var obj = window.parent.creativeSettings;
 
         var creativetypte = creativeType;
-
         function GetPropertyValue(
-            object,
+            obj,
             dataToRetrieve,
             contenttyp,
             creativetypte
@@ -79,17 +77,19 @@
                 boxright.style.maxHeight = maxheight2 + "px";
             } else if (theexactheight >= 700 && theexactheight <= 900) {
                 boxright.style.maxHeight = maxheight3 + "px";
-            } else {}
+            } else { }
             boxright.style.minHeight = 600 + "px";
             boxright.style.maxWidth = 800 + "px";
             boxright.style.minWidth = 300 + "px";
-            if (basehost == "gofeminin" || basehost == "instyle" || basehost == "elle" || basehost == "freundin" || basehost == "harpersbazaar" || basehost == "esquire") {
+      if (basehost == "gofeminin" ) {
                 current_window = window;
                 var bh = parent.window.innerHeight - 155;
                 var bw = parent.window.innerWidth;
                 current_window = current_window.parent;
                 current_element = window.frameElement;
+                console.log('current_element', current_element);
                 current_element = current_element.offsetParent;
+                console.log('current_element', current_element);
                 var viewportOffset = current_element.getBoundingClientRect();
                 var left = viewportOffset.left;
                 var sitebar_width = bw - left;
@@ -115,26 +115,26 @@
         };
         delay = 5; // delay between calls
         throttled = false; // are we currently throttled?
-        parent.document.getElementsByTagName('body')[0].onscroll = function() {
+        parent.document.getElementsByTagName('body')[0].onscroll = function () {
             if (!throttled) {
                 let {
                     boxheight,
                     boxwidth
                 } = new resizing();
                 throttled = true;
-                setTimeout(function() {
+                setTimeout(function () {
                     throttled = false;
                 }, delay);
             }
         }
-        window.parent.addEventListener("resize", function() {
+        window.parent.addEventListener("resize", function () {
             if (!throttled) {
                 let {
                     boxheight,
                     boxwidth
                 } = new resizing();
                 throttled = true;
-                setTimeout(function() {
+                setTimeout(function () {
                     throttled = false;
                 }, delay);
             }
@@ -145,16 +145,40 @@
 
 <body>
     <div id="thecreativecont"></div>
+    <img src="[%Third_party_impression_tracking_URL_1%]" style="display: none;">
+    <img src="[%Third_party_impression_tracking_URL_2%]" style="display: none;">
+    <img src="[%Third_party_impression_tracking_URL_3%]" style="display: none;">
 </body>
 <script>
-    celtratag = `[%CELTRATAG%]`
+  jstracking=  `[%Third_party_impression_tracking_SCRIPT%]`      
+
+     if(jstracking){
+      obj.regex(jstracking)
+      if (obj.regex(jstracking) == true) {
+          thetrackingcodes = document.createElement("script");
+          thetrackingcodes.src = jstracking;
+         
+          thebodydiv=document.querySelector("#thecreativecont")
+          thebodydiv.appendChild(thetrackingcodes)
+      } else {
+          thetrackingcodes = document.createElement("script");
+          thetrackingcodes.type = "text/javascript";
+          thetrackingcodes.textContent = jstracking;
+          thebodydiv=document.querySelector("#thecreativecont")
+          thebodydiv.appendChild(thetrackingcodes)
+      }
+     }
+ 
+  
+  
+    celtratag = `[%CELTRA_REDIRECT%]`
     iframeurl = "[%IFRAME_REDIRECT%]";
     jsredirect = `[%JAVASCRIPT_REDIRECT%]`;
     obj.regex(jsredirect)
-        //JSREDIRECT
+    //JSREDIRECT
     if (obj.regex(jsredirect) == true) {
         thecrativecodes = document.createElement("script");
-        thecrativecodes.innerHTML = `document.write("<scr" + "ipt src='` + jsredirect + `'></scr" + "ipt>");`;
+        thecrativecodes.src = jsredirect; 
     } else {
         thecrativecodes = document.createElement("script");
         thecrativecodes.type = "text/javascript";
@@ -162,8 +186,8 @@
     }
     if (jsredirect != "") {
         console.log("jsredirectcase")
-            // document.getElementsByTagName("html")[0].style.height = 100 + "%";
-            //document.getElementsByTagName("body")[0].style.height = 100 + "%";
+        // document.getElementsByTagName("html")[0].style.height = 100 + "%";
+        //document.getElementsByTagName("body")[0].style.height = 100 + "%";
         function theDSA() {
             theDiv = document.getElementById("thecreativecont");
             theDiv.style.maxHeight = 100 + "%";
@@ -184,7 +208,6 @@
         console.log("celtraTagCase")
         document.getElementsByTagName("html")[0].style.height = 100 + "%";
         document.getElementsByTagName("body")[0].style.height = 100 + "%";
-
         function theDSA() {
             theDiv = document.getElementById("thecreativecont");
             theDiv.style.maxHeight = 100 + "%";
@@ -203,7 +226,6 @@
         console.log("IframeCase")
         document.getElementsByTagName("html")[0].style.height = 100 + "%";
         document.getElementsByTagName("body")[0].style.height = 100 + "%";
-
         function theDSA() {
             var theDiv = document.getElementById("thecreativecont");
             theDiv.style.maxHeight = 100 + "%";

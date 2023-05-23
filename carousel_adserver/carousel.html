@@ -4,19 +4,21 @@
     <style>
         .carousel-wrapper {
             overflow: hidden;
-            width: 100%;
+            height: 600px;
+            width: 300px;
             z-index: 500;
+
         }
-        
+
         .carousel-wrapper * {
             box-sizing: border-box;
             z-index: 500;
         }
-        
+
         .carousel {
             transform-style: preserve-3d;
         }
-        
+
         .carousel__photo {
             opacity: 0;
             position: absolute;
@@ -25,28 +27,44 @@
             z-index: 100;
             transition: transform .5s, opacity .5s, z-index .5s;
         }
-        
+
         .carousel__photo.initial,
         .carousel__photo.active {
             opacity: 1;
             position: relative;
             z-index: 900;
         }
-        
+
         .carousel__photo.prev,
         .carousel__photo.next {
             z-index: 800;
         }
-        
+
         .carousel__photo.prev {
             transform: translateX(-100%);
         }
-        
+
         .carousel__photo.next {
             transform: translateX(100%);
         }
-        
-        .carousel__button--prev,
+
+        .carousel__button--prev {
+            position: absolute;
+            top: 270px;
+            width: 3rem;
+            height: 3rem;
+            background-color: #FFF;
+            transform: translateY(0%);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1001;
+            border: 1px solid black;
+            -webkit-animation: pulsate 0.5s;
+            -webkit-animation-iteration-count: 3;
+            opacity: 0.8;
+            left: 251px;
+        }
+
         .carousel__button--next {
             position: absolute;
             top: 270px;
@@ -62,31 +80,33 @@
             -webkit-animation-iteration-count: 3;
             opacity: 0.8;
         }
-        
+
         @-webkit-keyframes pulsate {
             0% {
                 -webkit-transform: scale(0.2, 0.2);
                 opacity: 0.0;
             }
+
             50% {
                 opacity: 0.8;
             }
+
             100% {
                 -webkit-transform: scale(1.2, 1.2);
                 opacity: 0.0;
             }
         }
-        
+
         .carousel__button--prev {
             z-index: 50000;
             left: 1px;
         }
-        
+
         .carousel__button--next {
             z-index: 50000;
             right: 0;
         }
-        
+
         .carousel__button--prev::after,
         .carousel__button--next::after {
             content: " ";
@@ -99,14 +119,34 @@
             border-bottom: 2px solid black;
             transform: translate(-50%, -50%) rotate(135deg);
         }
-        
+
         .carousel__button--next::after {
             left: 47%;
             transform: translate(-50%, -50%) rotate(-45deg);
         }
-        
+
         span {
             display: none;
+        }
+
+        .calltocation {
+            font-family: arial;
+
+            font-size: large;
+            width: 300px;
+
+            word-break: break-all;
+        }
+
+        .wordbox {
+            border: 1px solid lightgrey;
+            padding: 3px;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
         }
     </style>
 </head>
@@ -115,13 +155,22 @@
     <div class="carousel-wrapper">
         <div class="carousel">
             <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
-                <img class="carousel__photo initial" src="[%IMAGE_1_300x400%]"> <span>[%3rdParty1%]</span>
+                <img class="carousel__photo" src="[%IMAGE_1_300x400%]"> 
+                <img src="[%Third_party_impression_tracking_URL_1%]" style="display: none;">
+            
             </a>
             <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_2%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_2_300x400%]"><span> [%3rdParty2%]</span>
+                <img class="carousel__photo" src="[%IMAGE_2_300x400%]">
+                <img src="[%Third_party_impression_tracking_URL_2%]" style="display: none;">
+                
             </a>
             <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
-                <img class="carousel__photo" src="[%IMAGE_3_300x400%]"> <span>[%3rdParty3%]</span>
+                <img class="carousel__photo" src="[%IMAGE_3_300x400%]">
+                <img src="[%Third_party_impression_tracking_URL_3%]" style="display: none;">
+            </a>
+            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_4%] " target="_blank">
+                <img class="carousel__photo" src="[%IMAGE_4_300x400%]">
+                <img src="[%Third_party_impression_tracking_URL_4%]" style="display: none;">
             </a>
             <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank">
                 <img class="carousel__photo" src="[%IMAGE_1_300x400%]">
@@ -131,41 +180,42 @@
             </a>
             <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_3%] " target="_blank">
                 <img class="carousel__photo" src="[%IMAGE_3_300x400%]">
-            </a>
-            <div class="carousel__button--next"></div>
-            <div class="carousel__button--prev"></div>
+            <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_4%] " target="_blank">
+                    <img class="carousel__photo" src="[%IMAGE_4_300x400%]">
+                </a>
+                <div class="carousel__button--next"></div>
+                <div class="carousel__button--prev"></div>
         </div>
+        <a href="%%CLICK_URL_UNESC%%[%Click_through_URL_1%] " target="_blank" class="wordboxlink">
+            <div class="wordbox">
+                <textfield class="calltocation">
+                    <center>[%TEXT_120_characters_max%]</center>
+                </textfield>
+            </div>
+        </a>
     </div>
     <script>
         !(function(d) {
-            ad = document.querySelector(".carousel__photo.initial")
-            console.log('ad', ad);
-            theclick = document.createElement("a")
-            theclick.setAttribute('href', '%%CLICK_URL_UNESC%%[%Hyperlink%]')
-            theclick.setAttribute("target", "_blank")
-            ad.appendChild(theclick)
             var itemClassName = "carousel__photo";
             items = d.getElementsByClassName(itemClassName),
                 totalItems = items.length,
                 slide = 0,
                 moving = true;
-
             function setInitialClasses() {
                 items[totalItems - 1].classList.add("prev");
                 items[0].classList.add("active");
                 items[1].classList.add("next");
             }
-
             function setEventListeners() {
                 var next = d.getElementsByClassName('carousel__button--next')[0],
                     prev = d.getElementsByClassName('carousel__button--prev')[0];
                 next.addEventListener('click', moveNext);
                 prev.addEventListener('click', movePrev);
             }
-
             function moveNext() {
+              
                 if (!moving) {
-                    if (slide === (totalItems - 1)) {
+                if (slide === (totalItems - 1)) {
                         slide = 0;
                     } else {
                         slide++;
@@ -173,9 +223,9 @@
                     moveCarouselTo(slide);
                 }
             }
-
             function movePrev() {
                 if (!moving) {
+
                     if (slide === 0) {
                         slide = (totalItems - 1);
                     } else {
@@ -186,7 +236,7 @@
             }
 
             function disableInteraction() {
-                moving = true;
+                moving = true; 
                 setTimeout(function() {
                     moving = false
                 }, 500);
@@ -200,11 +250,13 @@
                         oldPrevious = slide - 2,
                         oldNext = slide + 2;
                     if ((totalItems - 1) > 3) {
+                        
                         if (newPrevious <= 0) {
                             oldPrevious = (totalItems - 1);
                         } else if (newNext >= (totalItems - 1)) {
                             oldNext = 0;
                         }
+                       
                         if (slide === 0) {
                             newPrevious = (totalItems - 1);
                             oldPrevious = (totalItems - 2);
@@ -216,6 +268,7 @@
                         }
                         items[oldPrevious].className = itemClassName;
                         items[oldNext].className = itemClassName;
+                    
                         items[newPrevious].className = itemClassName + " prev";
                         items[slide].className = itemClassName + " active";
                         items[newNext].className = itemClassName + " next";
@@ -230,6 +283,51 @@
             }
             initCarousel();
         }(document));
+        thewordbox = document.querySelector(".wordboxlink")
+        let CountButtonHomeClicks = 0;
+        document.getElementsByClassName('carousel__button--next')[0].addEventListener("click", function () {
+            CountButtonHomeClicks += 1;
+            
+            if (CountButtonHomeClicks == 1) {
+                thewordbox.href = "%%CLICK_URL_UNESC%%[%Click_through_URL_1%] ";
+            } else if (CountButtonHomeClicks == 2) {
+                thewordbox.href = "%%CLICK_URL_UNESC%%[%Click_through_URL_2%] ";
+            } else if (CountButtonHomeClicks == 3) {
+                thewordbox.href = "%%CLICK_URL_UNESC%%[%Click_through_URL_3%] ";
+            } else if (CountButtonHomeClicks == 4) {
+                thewordbox.href = "%%CLICK_URL_UNESC%%[%Click_through_URL_4%] ";
+                CountButtonHomeClicks = 0;
+            }
+        });
+        function myFuncinter() {
+            document.getElementsByClassName('carousel__button--next')[0].click();
+        }
+        setInterval(myFuncinter, 3000)
+        thepic=document.querySelector(".carousel__photo")
+        thepicheight=thepic.height;
+        if(thepicheight==600){
+            thewordbox.style.display="none !important";  
+        }
+
+        jstracking=  `[%Thirdparty_impression_tracking_SCRIPT%]`      
+
+obj.regex(jstracking)
+   if (obj.regex(jstracking) == true) {
+       thetrackingcodes = document.createElement("script");
+       thetrackingcodes.innerHTML = document.write("<scr" + "ipt src=" + jstracking +" `></scr" + "ipt>");
+      
+       thebodydiv=document.querySelector(".carousel-wrapper")
+       thebodydiv.appendChild(thetrackingcodes)
+   } else {
+       thetrackingcodes = document.createElement("script");
+       thetrackingcodes.type = "text/javascript";
+       thetrackingcodes.textContent = jstracking;
+       thebodydiv=document.querySelector(".carousel-wrapper")
+       thebodydiv.appendChild(thetrackingcodes)
+   }
+
+
+
     </script>
 </body>
 
